@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSearchToggle();
     initializeScrollEffects();
+    initializeAuth();
 });
 
 function initializeNavigation() {

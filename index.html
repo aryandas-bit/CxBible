@@ -6,6 +6,44 @@
     <title>CX Bible - Ultrahuman Customer Support Documentation</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Firebase SDK -->
+    <script type="module">
+      // Import Firebase modules
+      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
+      import { getFirestore, doc, setDoc, serverTimestamp, increment } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+      // Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
+      const firebaseConfig = {
+        apiKey: "your-api-key",
+        authDomain: "your-project.firebaseapp.com",
+        projectId: "your-project-id",
+        storageBucket: "your-project.appspot.com",
+        messagingSenderId: "123456789",
+        appId: "your-app-id"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      // Google Auth Provider
+      const provider = new firebase.auth.GoogleAuthProvider();
+
+      // Make auth functions global
+      window.firebaseAuth = auth;
+      window.firebaseDb = db;
+      window.firebaseProvider = provider;
+      window.firebaseSignInWithPopup = signInWithPopup;
+      window.firebaseSignOut = signOut;
+      window.firebaseOnAuthStateChanged = onAuthStateChanged;
+      window.firebaseDoc = doc;
+      window.firebaseSetDoc = setDoc;
+      window.firebaseServerTimestamp = serverTimestamp;
+      window.firebaseIncrement = increment;
+    </script>
 </head>
 <body>
     <header class="header">
@@ -16,6 +54,10 @@
                 <input type="text" id="searchInput" placeholder="Search documentation..." class="search-input">
                 <button id="searchButton" class="search-button">Search</button>
                 <button id="searchToggle" class="search-toggle">🔍</button>
+            </div>
+            <div class="auth-container">
+                <button id="authButton" class="auth-button">Login with Gmail</button>
+                <div id="userInfo" class="user-info" style="display: none;"></div>
             </div>
         </div>
     </header>

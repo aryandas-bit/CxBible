@@ -450,10 +450,55 @@ body {
     }
 }
 
+/* Auth Container */
+.auth-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+    background: #0056b3;
+}
+
+.user-info {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Mobile Auth Styles */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .auth-button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .user-info {
+        font-size: 12px;
+    }
+}
+
 /* Print Styles */
 @media print {
     .nav,
     .search-container,
+    .auth-container,
     .footer {
         display: none;
     }

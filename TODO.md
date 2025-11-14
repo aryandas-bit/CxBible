@@ -1,28 +1,27 @@
-# TODO: Make Search Bar Responsive
+# CX Bible TODO List
 
-## Overview
-Make the search bar responsive for mobile devices by adding a toggle button that focuses the search input on mobile screens.
+## Completed Tasks
+- [x] Add Firebase authentication for Gmail login
+- [x] Integrate Firebase SDK into index.html
+- [x] Create js/auth.js with authentication logic
+- [x] Add auth UI elements to header
+- [x] Update js/main.js to initialize auth
+- [x] Add auth styles to css/styles.css
+- [x] Store user data in Firestore on login
 
-## Steps to Complete
+## Pending Tasks
+- [ ] Set up Firebase project and get actual configuration keys
+- [ ] Replace placeholder Firebase config with real values
+- [ ] Test Google login functionality
+- [ ] Verify Firestore data storage
+- [ ] Test logout functionality
+- [ ] Test on different devices/browsers
+- [ ] Add error handling for auth failures
+- [ ] Add loading states for auth operations
 
-### 1. Update HTML Structure
-- [x] Add a search toggle button (🔍) next to the search input in the header.
-
-### 2. Update CSS Styles
-- [x] Add styles for the search toggle button.
-- [x] Make the search container responsive with proper positioning.
-- [x] Adjust padding for search input to accommodate the toggle button.
-- [x] Ensure toggle button is only visible on mobile screens.
-
-### 3. Update JavaScript Functionality
-- [x] Add initializeSearchToggle() function to handle toggle button clicks.
-- [x] Call initializeSearchToggle() in the DOMContentLoaded event listener.
-- [x] Ensure the toggle button focuses the search input when clicked.
-
-### 4. Test Responsiveness
-- [x] Test on mobile devices and different screen sizes.
-- [x] Verify search functionality works correctly with the toggle.
-
-### 5. Final Review
-- [x] Review all changes for accuracy and completeness.
-- [x] Update this TODO as steps are completed.
+## Notes
+- Firebase configuration currently uses placeholder values
+- Need to create Firebase project at https://console.firebase.google.com/
+- Enable Authentication with Google provider
+- Enable Firestore database
+- Update config in index.html and js/auth.js with real values
