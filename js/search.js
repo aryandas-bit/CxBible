@@ -1,5 +1,5 @@
-// Search functionality for CX Bible
-class CXBibleSearch {
+// Search functionality for CodeX
+class CodeXSearch {
     constructor() {
         this.searchIndex = {};
         this.searchResults = [];
@@ -16,7 +16,8 @@ class CXBibleSearch {
         // Build search index from content data
         Object.keys(contentData).forEach(sectionId => {
             const section = contentData[sectionId];
-            const content = section.content.toLowerCase();
+            // Strip HTML tags and get plain text content
+            const content = this.stripHtml(section.content).toLowerCase();
             const title = section.title.toLowerCase();
 
             // Split content into sentences for better snippet extraction
@@ -56,6 +57,13 @@ class CXBibleSearch {
                 }
             });
         });
+    }
+
+    stripHtml(html) {
+        // Create a temporary div element to strip HTML tags
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        return tempDiv.textContent || tempDiv.innerText || '';
     }
 
     bindEvents() {
@@ -241,7 +249,23 @@ class CXBibleSearch {
     }
 }
 
-// Initialize search when DOM is loaded
+// Initialize search after content is loaded
+function initializeSearch() {
+    new CodeXSearch();
+}
+
+// Wait for content to be loaded before initializing search
 document.addEventListener('DOMContentLoaded', function() {
-    new CXBibleSearch();
+    // Check if content is already loaded
+    if (typeof contentData !== 'undefined') {
+        initializeSearch();
+    } else {
+        // Wait for content to load
+        const checkContent = setInterval(() => {
+            if (typeof contentData !== 'undefined') {
+                clearInterval(checkContent);
+                initializeSearch();
+            }
+        }, 100);
+    }
 });

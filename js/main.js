@@ -1,9 +1,10 @@
-// Main JavaScript for CX Bible
+// Main JavaScript for CodeX
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeMobileMenu();
     initializeSearchToggle();
     initializeScrollEffects();
+    initializeContent();
 });
 
 function initializeNavigation() {
@@ -115,6 +116,36 @@ function throttle(func, limit) {
     }
 }
 
+// Navigation function for overview cards
+function navigateToSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        if (navLink) {
+            navLink.classList.add('active');
+        }
+
+        // Scroll to section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Close mobile menu if open
+        const navList = document.getElementById('navList');
+        if (navList && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+        }
+    }
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', function(e) {
     // Ctrl/Cmd + K to focus search
@@ -148,59 +179,23 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Print functionality
-function printSection() {
-    const activeSection = document.querySelector('.section.active');
-    if (activeSection) {
-        const printContent = activeSection.cloneNode(true);
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>CX Bible - ${activeSection.querySelector('h2').textContent}</title>
-                <link rel="stylesheet" href="css/styles.css">
-            </head>
-            <body>
-                ${printContent.innerHTML}
-            </body>
-            </html>
-        `);
-        printWindow.document.close();
-        printWindow.print();
-    }
-}
 
-// Add print button to each section (optional)
-document.querySelectorAll('.section').forEach(section => {
-    if (section.id !== 'overview') {
-        const printButton = document.createElement('button');
-        printButton.textContent = '🖨️ Print Section';
-        printButton.className = 'print-button';
-        printButton.addEventListener('click', printSection);
-
-        const sectionHeader = section.querySelector('h2');
-        if (sectionHeader) {
-            sectionHeader.appendChild(printButton);
-        }
-    }
-});
 
 // Performance monitoring
 if ('performance' in window && 'timing' in performance) {
     window.addEventListener('load', function() {
         const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-        console.log(`CX Bible loaded in ${loadTime}ms`);
+        console.log(`CodeX loaded in ${loadTime}ms`);
     });
 }
 
 // Error handling
 window.addEventListener('error', function(e) {
-    console.error('CX Bible Error:', e.error);
+    console.error('CodeX Error:', e.error);
     // Could send error reports to monitoring service here
 });
 
 window.addEventListener('unhandledrejection', function(e) {
-    console.error('CX Bible Unhandled Promise Rejection:', e.reason);
+    console.error('CodeX Unhandled Promise Rejection:', e.reason);
     // Could send error reports to monitoring service here
 });

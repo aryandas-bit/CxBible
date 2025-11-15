@@ -1,4 +1,4 @@
-// CX Bible Content Data
+// CodeX Content Data
 const contentData = {
     'blood-vision': {
         title: 'Blood Vision Documentation',
@@ -1051,4 +1051,5 @@ document.addEventListener('DOMContentLoaded', function() {
     Object.keys(contentData).forEach(sectionId => {
         loadContent(sectionId);
     });
+    console.log('Content loaded successfully');
 });

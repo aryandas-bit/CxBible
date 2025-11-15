@@ -1,28 +1,45 @@
-# TODO: Make Search Bar Responsive
+# CX Bible TODO List
 
-## Overview
-Make the search bar responsive for mobile devices by adding a toggle button that focuses the search input on mobile screens.
+## Completed Tasks
+- [x] Add Firebase authentication for Gmail login
+- [x] Integrate Firebase SDK into index.html
+- [x] Create js/auth.js with authentication logic
+- [x] Add auth UI elements to header
+- [x] Update js/main.js to initialize auth
+- [x] Add auth styles to css/styles.css
+- [x] Store user data in Firestore on login
+- [x] Set up Firebase project and get actual configuration keys
+- [x] Replace placeholder Firebase config with real values
+- [x] Test Google login functionality
+- [x] Verify Firestore data storage
+- [x] Test logout functionality
+- [x] Test on different devices/browsers
+- [x] Add error handling for auth failures
+- [x] Add loading states for auth operations
+- [x] Make login screen responsive for mobile devices
+- [x] Add Google logo to login button
+- [x] Improve login screen layout and spacing
+- [x] Make login required initially before showing website
+- [x] Fix search bar functionality
+- [x] Remove Firebase authentication requirement
+- [x] Update CSS to show content by default
+- [x] Remove auth UI elements from header
+- [x] Re-enable Firebase authentication requirement
+- [x] Update CSS to hide content initially
+- [x] Add auth UI elements back to header
+- [x] Remove authentication tab and Gmail login button
+- [x] Remove Firebase scripts and auth initialization
+- [x] Remove auth-related CSS and login screen styles
 
-## Steps to Complete
+## Pending Tasks
+- [x] Update js/firebase.js to include Firebase Auth imports
+- [x] Implement Google sign-in logic in js/auth.js with overlay functionality
+- [x] Add sign-in overlay HTML to index.html
+- [x] Add CSS styles for the overlay in css/styles.css
+- [x] Update js/main.js to handle authentication state and show/hide overlay
+- [x] Update TODO.md to reflect the changes
 
-### 1. Update HTML Structure
-- [x] Add a search toggle button (🔍) next to the search input in the header.
-
-### 2. Update CSS Styles
-- [x] Add styles for the search toggle button.
-- [x] Make the search container responsive with proper positioning.
-- [x] Adjust padding for search input to accommodate the toggle button.
-- [x] Ensure toggle button is only visible on mobile screens.
-
-### 3. Update JavaScript Functionality
-- [x] Add initializeSearchToggle() function to handle toggle button clicks.
-- [x] Call initializeSearchToggle() in the DOMContentLoaded event listener.
-- [x] Ensure the toggle button focuses the search input when clicked.
-
-### 4. Test Responsiveness
-- [x] Test on mobile devices and different screen sizes.
-- [x] Verify search functionality works correctly with the toggle.
-
-### 5. Final Review
-- [x] Review all changes for accuracy and completeness.
-- [x] Update this TODO as steps are completed.
+## Notes
+- Authentication has been completely removed from the CX Bible
+- Content now loads directly without requiring login
+- Firebase scripts and auth logic have been removed

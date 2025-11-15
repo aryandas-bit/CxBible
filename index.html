@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CX Bible - Ultrahuman Customer Support Documentation</title>
+    <title>CX Codex - Ultrahuman Customer Support Documentation</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+
+
 </head>
 <body>
     <header class="header">
         <div class="header-content">
-            <h1 class="header-title">CX Bible</h1>
+            <h1 class="header-title" id="headerTitle">
+                <span class="letter">C</span>
+                <span class="letter">X</span>
+                <span class="letter">&nbsp;</span>
+                <span class="letter">C</span>
+                <span class="letter">o</span>
+                <span class="letter">d</span>
+                <span class="letter">e</span>
+                <span class="letter">x</span>
+            </h1>
             <p class="header-subtitle">Ultrahuman Customer Support Documentation</p>
             <div class="search-container">
                 <input type="text" id="searchInput" placeholder="Search documentation..." class="search-input">
                 <button id="searchButton" class="search-button">Search</button>
                 <button id="searchToggle" class="search-toggle">🔍</button>
             </div>
+
         </div>
     </header>
+
+
 
     <nav class="nav">
         <div class="nav-content">
@@ -35,42 +51,44 @@
         </div>
     </nav>
 
+
+
     <main class="main-content">
         <div class="content-container">
             <section id="overview" class="section active">
-                <h2>Welcome to CX Bible</h2>
+                <h2>Welcome to CX Codex</h2>
                 <p>This comprehensive documentation covers all aspects of Ultrahuman's customer support operations, including product FAQs, troubleshooting guides, and standard operating procedures.</p>
 
                 <div class="overview-grid">
-                    <div class="overview-card">
+                <div class="overview-card">
                         <h3>Blood Vision</h3>
                         <p>Complete guide to Blood Vision testing, FAQs, and USA-specific procedures.</p>
-                        <a href="#blood-vision" class="card-link">Explore →</a>
+                        <a href="#blood-vision" class="card-link" onclick="navigateToSection('blood-vision')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>M1 Sensor</h3>
                         <p>Comprehensive documentation for glucose monitoring, troubleshooting, and regional differences.</p>
-                        <a href="#m1-sensor" class="card-link">Explore →</a>
+                        <a href="#m1-sensor" class="card-link" onclick="navigateToSection('m1-sensor')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>Ring AIR</h3>
                         <p>Troubleshooting guides and support procedures for the Ultrahuman Ring AIR.</p>
-                        <a href="#ring-air" class="card-link">Explore →</a>
+                        <a href="#ring-air" class="card-link" onclick="navigateToSection('ring-air')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>PowerPlug</h3>
                         <p>Detailed FAQs and feature explanations for all PowerPlug modules.</p>
-                        <a href="#powerplug" class="card-link">Explore →</a>
+                        <a href="#powerplug" class="card-link" onclick="navigateToSection('powerplug')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>Ultrahuman Home</h3>
                         <p>Complete guide to home health monitoring device setup and usage.</p>
-                        <a href="#ultrahuman-home" class="card-link">Explore →</a>
+                        <a href="#ultrahuman-home" class="card-link" onclick="navigateToSection('ultrahuman-home')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>SOPs & Procedures</h3>
                         <p>Standard operating procedures for chat handling, flagging, and customer service.</p>
-                        <a href="#sops" class="card-link">Explore →</a>
+                        <a href="#sops" class="card-link" onclick="navigateToSection('sops')">Explore →</a>
                     </div>
                 </div>
             </section>
@@ -1123,7 +1141,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 Ultrahuman CX Bible. Internal Documentation.</p>
+            <p>&copy; 2024 Ultrahuman CX Codex. Internal Documentation.</p>
         </div>
     </footer>
 
