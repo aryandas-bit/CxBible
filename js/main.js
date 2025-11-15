@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeMobileMenu();
     initializeSearchToggle();
     initializeScrollEffects();
-    initializeAuth();
+    initializeContent();
 });
 
 function initializeNavigation() {
@@ -116,6 +116,36 @@ function throttle(func, limit) {
     }
 }
 
+// Navigation function for overview cards
+function navigateToSection(sectionId) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Show target section
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+        targetSection.classList.add('active');
+
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+        if (navLink) {
+            navLink.classList.add('active');
+        }
+
+        // Scroll to section
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+
+        // Close mobile menu if open
+        const navList = document.getElementById('navList');
+        if (navList && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+        }
+    }
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', function(e) {
     // Ctrl/Cmd + K to focus search
@@ -149,43 +179,7 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Print functionality
-function printSection() {
-    const activeSection = document.querySelector('.section.active');
-    if (activeSection) {
-        const printContent = activeSection.cloneNode(true);
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(`
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>CX Bible - ${activeSection.querySelector('h2').textContent}</title>
-                <link rel="stylesheet" href="css/styles.css">
-            </head>
-            <body>
-                ${printContent.innerHTML}
-            </body>
-            </html>
-        `);
-        printWindow.document.close();
-        printWindow.print();
-    }
-}
 
-// Add print button to each section (optional)
-document.querySelectorAll('.section').forEach(section => {
-    if (section.id !== 'overview') {
-        const printButton = document.createElement('button');
-        printButton.textContent = '🖨️ Print Section';
-        printButton.className = 'print-button';
-        printButton.addEventListener('click', printSection);
-
-        const sectionHeader = section.querySelector('h2');
-        if (sectionHeader) {
-            sectionHeader.appendChild(printButton);
-        }
-    }
-});
 
 // Performance monitoring
 if ('performance' in window && 'timing' in performance) {

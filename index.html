@@ -7,43 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Firebase SDK -->
-    <script type="module">
-      // Import Firebase modules
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
-      import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js';
-      import { getFirestore, doc, setDoc, serverTimestamp, increment } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
 
-      // Firebase configuration - REPLACE WITH YOUR ACTUAL CONFIG
-      const firebaseConfig = {
-        apiKey: "your-api-key",
-        authDomain: "your-project.firebaseapp.com",
-        projectId: "your-project-id",
-        storageBucket: "your-project.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "your-app-id"
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-
-      // Google Auth Provider
-      const provider = new firebase.auth.GoogleAuthProvider();
-
-      // Make auth functions global
-      window.firebaseAuth = auth;
-      window.firebaseDb = db;
-      window.firebaseProvider = provider;
-      window.firebaseSignInWithPopup = signInWithPopup;
-      window.firebaseSignOut = signOut;
-      window.firebaseOnAuthStateChanged = onAuthStateChanged;
-      window.firebaseDoc = doc;
-      window.firebaseSetDoc = setDoc;
-      window.firebaseServerTimestamp = serverTimestamp;
-      window.firebaseIncrement = increment;
-    </script>
 </head>
 <body>
     <header class="header">
@@ -55,12 +19,11 @@
                 <button id="searchButton" class="search-button">Search</button>
                 <button id="searchToggle" class="search-toggle">🔍</button>
             </div>
-            <div class="auth-container">
-                <button id="authButton" class="auth-button">Login with Gmail</button>
-                <div id="userInfo" class="user-info" style="display: none;"></div>
-            </div>
+
         </div>
     </header>
+
+
 
     <nav class="nav">
         <div class="nav-content">
@@ -84,35 +47,35 @@
                 <p>This comprehensive documentation covers all aspects of Ultrahuman's customer support operations, including product FAQs, troubleshooting guides, and standard operating procedures.</p>
 
                 <div class="overview-grid">
-                    <div class="overview-card">
+                <div class="overview-card">
                         <h3>Blood Vision</h3>
                         <p>Complete guide to Blood Vision testing, FAQs, and USA-specific procedures.</p>
-                        <a href="#blood-vision" class="card-link">Explore →</a>
+                        <a href="#blood-vision" class="card-link" onclick="navigateToSection('blood-vision')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>M1 Sensor</h3>
                         <p>Comprehensive documentation for glucose monitoring, troubleshooting, and regional differences.</p>
-                        <a href="#m1-sensor" class="card-link">Explore →</a>
+                        <a href="#m1-sensor" class="card-link" onclick="navigateToSection('m1-sensor')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>Ring AIR</h3>
                         <p>Troubleshooting guides and support procedures for the Ultrahuman Ring AIR.</p>
-                        <a href="#ring-air" class="card-link">Explore →</a>
+                        <a href="#ring-air" class="card-link" onclick="navigateToSection('ring-air')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>PowerPlug</h3>
                         <p>Detailed FAQs and feature explanations for all PowerPlug modules.</p>
-                        <a href="#powerplug" class="card-link">Explore →</a>
+                        <a href="#powerplug" class="card-link" onclick="navigateToSection('powerplug')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>Ultrahuman Home</h3>
                         <p>Complete guide to home health monitoring device setup and usage.</p>
-                        <a href="#ultrahuman-home" class="card-link">Explore →</a>
+                        <a href="#ultrahuman-home" class="card-link" onclick="navigateToSection('ultrahuman-home')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>SOPs & Procedures</h3>
                         <p>Standard operating procedures for chat handling, flagging, and customer service.</p>
-                        <a href="#sops" class="card-link">Explore →</a>
+                        <a href="#sops" class="card-link" onclick="navigateToSection('sops')">Explore →</a>
                     </div>
                 </div>
             </section>
