@@ -1,4 +1,4 @@
-// CX Bible Content Data
+// CodeX Content Data
 const contentData = {
     'blood-vision': {
         title: 'Blood Vision Documentation',

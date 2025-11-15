@@ -1,4 +1,4 @@
-// Main JavaScript for CX Bible
+// Main JavaScript for CodeX
 document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeMobileMenu();
@@ -185,17 +185,17 @@ document.addEventListener('keydown', function(e) {
 if ('performance' in window && 'timing' in performance) {
     window.addEventListener('load', function() {
         const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-        console.log(`CX Bible loaded in ${loadTime}ms`);
+        console.log(`CodeX loaded in ${loadTime}ms`);
     });
 }
 
 // Error handling
 window.addEventListener('error', function(e) {
-    console.error('CX Bible Error:', e.error);
+    console.error('CodeX Error:', e.error);
     // Could send error reports to monitoring service here
 });
 
 window.addEventListener('unhandledrejection', function(e) {
-    console.error('CX Bible Unhandled Promise Rejection:', e.reason);
+    console.error('CodeX Unhandled Promise Rejection:', e.reason);
     // Could send error reports to monitoring service here
 });

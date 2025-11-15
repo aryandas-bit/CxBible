@@ -1,5 +1,5 @@
-// Search functionality for CX Bible
-class CXBibleSearch {
+// Search functionality for CodeX
+class CodeXSearch {
     constructor() {
         this.searchIndex = {};
         this.searchResults = [];
@@ -251,7 +251,7 @@ class CXBibleSearch {
 
 // Initialize search after content is loaded
 function initializeSearch() {
-    new CXBibleSearch();
+    new CodeXSearch();
 }
 
 // Wait for content to be loaded before initializing search
