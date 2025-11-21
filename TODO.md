@@ -30,6 +30,10 @@
 - [x] Remove authentication tab and Gmail login button
 - [x] Remove Firebase scripts and auth initialization
 - [x] Remove auth-related CSS and login screen styles
+- [x] Add two tabs under Blood Vision: India and USA
+- [x] Implement tab switching functionality
+- [x] Add CSS styles for tabs
+- [x] Update JavaScript to handle tab interactions
 
 ## Pending Tasks
 - [x] Update js/firebase.js to include Firebase Auth imports
