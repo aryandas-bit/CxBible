@@ -26,9 +26,36 @@
             </h1>
             <p class="header-subtitle">Ultrahuman Customer Support Documentation</p>
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search documentation..." class="search-input">
-                <button id="searchButton" class="search-button">Search</button>
-                <button id="searchToggle" class="search-toggle">🔍</button>
+                <div class="search-widget">
+                    <div class="search-bar" role="search">
+                        <span class="search-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11 4a7 7 0 0 1 5.52 11.32l3.58 3.58a1 1 0 0 1-1.42 1.42l-3.58-3.58A7 7 0 1 1 11 4zm0 2a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <input type="text" id="searchInput" placeholder="What would you like to find today?" class="search-input" aria-label="Search Codex documentation">
+                        <div class="search-actions">
+                            <span class="search-shortcut" aria-hidden="true">
+                                <span>Ctrl</span>
+                                <span>/</span>
+                            </span>
+                            <button id="searchButton" class="search-button" aria-label="Run search">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12h14m0 0-5-5m5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="sr-only">Search</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button id="searchToggle" class="search-toggle" aria-label="Toggle search panel">🔍</button>
+            </div>
+
+            <div class="theme-toggle-container">
+                <button id="themeToggle" class="theme-toggle" aria-pressed="false">
+                    <span class="theme-toggle__icon" aria-hidden="true">??</span>
+                    <span class="theme-toggle__label">Dark Mode</span>
+                </button>
             </div>
 
         </div>
@@ -96,59 +123,340 @@
             <section id="blood-vision" class="section">
                 <h2>Blood Vision</h2>
                 <div id="blood-vision-content" class="document-content">
-                    <h3>Blood Vision General FAQ</h3>
-                    <h4>What is Blood Vision?</h4>
-                    <p>Our newest product, Blood Vision - powered by UltraTrace™ technology allows seamless correlation to the changes in your sleep, resting HR, HRV, and movement trends with pertinent markers in the blood. Decades of meticulous research underpin this categorisation.</p>
+                    <div class="tab-buttons blood-vision-tabs" role="tablist" aria-label="Blood Vision Regions">
+                        <button type="button" class="tab-button active" data-tab="india" role="tab" aria-controls="india-tab" aria-selected="true">India</button>
+                        <button type="button" class="tab-button" data-tab="usa" role="tab" aria-controls="usa-tab" aria-selected="false">USA</button>
+                        <button type="button" class="tab-button" data-tab="uae" role="tab" aria-controls="uae-tab" aria-selected="false">UAE</button>
+                    </div>
+                    <div class="tab-content active" id="india-tab">
+                        <div class="blood-vision-hero">
+                            <button type="button" class="hero-button" data-target="india-overview" aria-controls="india-overview">
+                                <span class="hero-country">India</span>
+                                <span class="hero-title">Overview</span>
+                                <span class="hero-note">Blood Vision General FAQ</span>
+                            </button>
+                            <button type="button" class="hero-button hero-button--meta" data-target="india-ts" aria-controls="india-ts">
+                                <span class="hero-tag">TS</span>
+                                <span class="hero-note">Troubleshooting</span>
+                            </button>
+                        </div>
+                        <div class="blood-vision-body">
+                        <h3 id="india-overview">Blood Vision General FAQ (India)</h3>
+                        <h4>What is Blood Vision?</h4>
+                        <p>Our newest product, Blood Vision - powered by UltraTrace™ technology allows seamless correlation to the changes in your sleep, resting HR, HRV, and movement trends with pertinent markers in the blood. Decades of meticulous research underpin this categorisation.</p>
+                        <p>For instance, UltraTrace™ can ascertain how a specific improvement in sleep quality might influence a marker like LDL, providing users with a probability score. This intuitive understanding empowers individuals to grasp the intricate connections between lifestyle habits and their direct impact on blood markers.</p>
 
-                    <h4>What you need to know about booking a Blood Vision Test</h4>
-                    <p>You can book your Blood Vision Test via the Ultrahuman app. You can also book a test for your friends and family here. All available test packages are visible in the app's vision tab.</p>
+                        <h4>What you need to know about booking a Blood Vision Test</h4>
+                        <p>You can book your Blood Vision Test via the Ultrahuman app. You can also book a test for your friends and family here. All available test packages are visible in the app's vision tab. You can select a slot for the appointment and enter patient details accordingly.</p>
+                        <p>All sample collections are carried out from the comfort of your home. To ensure a seamless experience, our collection partners arrive on time at your address and this can be tracked via the app in real-time as well.</p>
+                        <p>Post-collection, partial reports will start to show the same day. Final reports will show in the app and be shared over email once ready!</p>
 
-                    <h4>Is my location serviceable?</h4>
-                    <p>We are live in select cities in India - Bengaluru, Gurgaon, Delhi, Hyderabad, Mumbai & Noida.</p>
+                        <h4>Is my location serviceable?</h4>
+                        <p>We are live in select cities in India - Bengaluru, Gurgaon, Delhi, Hyderabad, Mumbai & Noida.</p>
+                        <p>To check if we serve your pin code, head over to the Ultrahuman app > Vision tab > Book Now > Add your address here to check!</p>
+                        <p>Alternatively, you can see the list of pin codes we serve here.</p>
 
-                    <h4>What are the different tests available?</h4>
-                    <p>We have 14 tests available: Peak Performance, Foundational, Advanced, Hormone Health, Organ Health, Diabetes Risk, Heart Health, Cognition Health, Inflammation Status, Recovery Panel, Fatigue, Hair Health, Sleep Status, Menstrual Health (female only)</p>
+                        <h4>What are the different tests available?</h4>
+                        <p>We have 14 tests available as of now.</p>
+                        <p>They are Peak Performance, Foundational, Advanced, Hormone Health, Organ Health, Diabetes Risk, Heart Health, Cognition Health, Inflammation Status, Recovery Panel, Fatigue, Hair Health, Sleep Status, Menstrual Health (female only)</p>
 
-                    <h4>Who comes to collect the samples?</h4>
-                    <p>We have exclusively tied up with Orange Health Labs, our partners in fulfilling the Blood Vision Tests. Their collection partners enable sample collections to be carried out from the comfort of your home.</p>
+                        <h4>Who comes to collect the samples?</h4>
+                        <p>We have exclusively tied up with Orange Health Labs, our partners in fulfilling the Blood Vision Tests. Their collection partners enable sample collections to be carried out from the comfort of your home.</p>
+                        <div class="hero-callout" id="india-ts">
+                            <h4>Testing &amp; Support</h4>
+                            <p>Need help with appointment slots or coverage? Use the Ultrahuman app &gt; Vision tab or flag the Blood Vision ops desk so the Orange Health team can assist with scheduling, reschedules, and sample logistics.</p>
+                        </div>
+                        </div>
+                    </div>
 
-                    <h3>Blood Vision USA FAQ</h3>
-                    <h4>What is Blood Vision?</h4>
-                    <p>Blood Vision is our newest product, powered by UltraTrace™ technology. It helps you understand the connections between your lifestyle habits and important markers in your blood.</p>
-
-                    <h4>Do I need a doctor's prescription to use Blood Vision?</h4>
-                    <p>No, you do not need your own doctor's prescription. Our service includes physician authorization.</p>
-
-                    <h4>How do I order a Blood Vision test?</h4>
-                    <p>You can purchase a Blood Vision test through the Ultrahuman app or the Blood Vision website. Upon purchase, an order is generated and routed to our B2B partner, Vital/Junction.</p>
-
-                    <h4>Is Blood Vision available in my location?</h4>
-                    <p>Blood Vision aims to cover all zip codes in the US through its lab partners (Quest Diagnostics, Labcorp) and mobile phlebotomy providers.</p>
-
-                    <h3>Blood Vision USA SOPs</h3>
+                    <div class="tab-content" id="usa-tab" hidden>
+                        <div class="blood-vision-hero">
+                            <button type="button" class="hero-button" data-target="usa-overview" aria-controls="usa-overview">
+                                <span class="hero-country">USA</span>
+                                <span class="hero-title">Overview</span>
+                                <span class="hero-note">CX Playbooks &amp; SOPs</span>
+                            </button>
+                            <button type="button" class="hero-button hero-button--meta" data-target="usa-ts" aria-controls="usa-ts">
+                                <span class="hero-tag">TS</span>
+                                <span class="hero-note">Troubleshooting</span>
+                            </button>
+                        </div>
+                        <div class="blood-vision-body">
+                                            <h3 id="usa-overview">BV USA - SOPs for CX team</h3>
+                    <h4>Ops Dashboard</h4>
+                    <p>Important tabs -</p>
+                    <ul>
+                    <li>Subscriptions (to check the status of subscriptions)</li>
+                    <li>Blood test orders: Blood test purchases</li>
+                    <li>Any edits to a users biodata (name, address etc) - flag to backend TAGS</li>
+                    </ul>
+                    <h4>Channels</h4>
+                    <p>#blood-vision-us-cx - general queries - Used Earlier.</p>
+                    <p>Now, we can use #support-tech-oncall-requests to post general queries regarding the Blood vision.</p>
+                    <p>#junction-x-ultrahuman-cs - queries to be routed to Vital</p>
+                    <h5>Support Guidelines/SOPs</h5>
                     <h4>Pre-Test Scenarios</h4>
-                    <h5>Phlebotomist Not Showing Up (No-Show)</h5>
-                    <p>Action: Empathize & Apologize, Gather Details, Immediate Escalation to Vital operations, Prioritize Reschedule, Consider Service Recovery.</p>
-
-                    <h5>Late Arrival</h5>
-                    <p>Action: Empathize & Apologize, Assess Severity (Minor vs Significant Delay), Service Recovery for significant delays.</p>
-
-                    <h5>Rescheduling (User-Initiated)</h5>
-                    <p>Policy: >24 Hours: Free reschedule, <24 Hours: Full appointment fee charged.</p>
-
+                    <p>1. Phlebotomist Not Showing Up (No-Show)</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Empathize &amp; Apologize: Express sincere apologies for the major inconvenience.</p>
+                    <p>2. Gather Details: Confirm appointment time, location (if at-home), and phlebotomist details if known.</p>
+                    <h5>3. Immediate Escalation (junction-x-ultrahuman-cs using the Order ID)</h5>
+                    <ul>
+                    <li>Contact Vital operations immediately to report the no-show.</li>
+                    <li>Request an urgent investigation with the phlebotomy vendor.</li>
+                    </ul>
+                    <p>4. Prioritize Reschedule: Work with Vital/the user to reschedule the appointment at the user&#x27;s earliest convenience (aim for within 24-48 hours) at free of cost.</p>
+                    <p>5. Consider Service Recovery: Offer an apology credit (policy TBD by Blood Vision) for the significant inconvenience.</p>
+                    <p>6. Internal Logging: Document the incident thoroughly in the CRM for tracking and vendor performance review. -TBD</p>
+                    <p>2. Phlebotomist Late Arrival</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Empathize &amp; Apologize: Apologize for the delay and inconvenience. 2. Gather Details: Ascertain how late the phlebotomist was (e.g., 15 minutes vs. 1 hour). 3. Assess Severity:</p>
+                    <ul>
+                    <li>Minor Delay (e.g., 10-15 minutes): Acknowledge it, apologize. Usually within reasonable limits for traffic/prior appointments.</li>
+                    <li>Significant Delay (e.g., 1 hour+): This warrants a more significant service recovery. 4. Service Recovery (for significant delay)</li>
+                    <li>Offer to reschedule at no cost if the user prefers not to wait or if the delay is excessive.</li>
+                    <li>If a mobile draw fee was charged, consider waiving/refunding it (policy TBD). ● Escalate to Vital to understand the cause and prevent recurrence.</li>
+                    </ul>
+                    <p>5. Internal Logging: Document the incident, especially if significant, for vendor performance.</p>
+                    <p>3. Rescheduling (User-Initiated)</p>
+                    <ul>
+                    <li>Policy</li>
+                    <li>&gt;24 Hours in Advance: User can reschedule freely without penalty. Guide them through the app/link if needed.</li>
+                    <li>&lt;24 Hours Before Appointment: The full appointment fee is charged to Blood Vision by Vital (and passed to the user). Clearly communicate this policy if a user attempts a late reschedule.</li>
+                    <li>For Walk ins the patient can cancel up to any point before their blood is drawn. Vital doesn’t refund the customer, that is up to us! If we cancel the order within Junction we are not charged the per order fee</li>
+                    <li>Missed Appointment (First Time): Typically allow one missed appointment without penalty. Help them promptly reschedule. Stress the importance of attending the next one. (Fee waiver for first-time courtesy - TBD).</li>
+                    <li>Repeated Missed Appointments/No-Shows: May need to charge the full appointment fee to cover phlebotomist costs.</li>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Assist User: If the user has trouble rescheduling via in app, we can help with rescheduling. We need to cancel the order (but not refund) which would give them an option to reschedule. Can be done via Blood test purchases &gt; view &gt; request order cancellation.</p>
+                    <p>2. Communicate Policy: Clearly explain any applicable fees for late rescheduling or no-shows.</p>
+                    <p>3. Internal Handling (for missed appointments): Ops team may need to issue a new lab requisition if the original was marked as a no-show. Ensure the user&#x27;s testing window (before 12-month expiration) remains open. Follow up with unresponsive users.</p>
+                    <p>4. User Anxiety/Fear of Pain (Pre-Test)</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Empathize &amp; Reassure: Acknowledge their feelings. Reassure them that phlebotomists are highly skilled and perform draws all day. Explaining the process is usually quick with only a slight pinch.</p>
+                    <h5>2. Provide Preparation Tips</h5>
+                    <ul>
+                    <li>Suggest good hydration the day before and morning of the test (water only if fasting) as it makes veins easier to access.</li>
+                    <li>Recommend getting a good night&#x27;s sleep and trying to arrive at the appointment relaxed.</li>
+                    </ul>
+                    <p>3. Advise Communication with Phlebotomists: Encourage the user to inform the phlebotomist about their anxiety upon arrival.</p>
+                    <p>4. Option to Lie Down: Inform them they can request to lie down during the draw, which labs/phlebotomists will usually accommodate to prevent fainting.</p>
+                    <p>5. Offer Resources: If appropriate, mention that info sheets on coping with needle anxiety can be provided (if developed).</p>
+                    <p>6. Document: Note the user&#x27;s anxiety in their record if they consent, so future phlebotomists can be aware if possible.</p>
+                    <p>5. User Medical Concerns (Pre-Test, e.g., &quot;Is this test right for me with X condition?&quot;)</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Clarify Blood Vision&#x27;s Role: Politely reinforce that Blood Vision is a wellness service, not a medical provider. We do not diagnose or treat conditions and cannot give medical advice.</p>
+                    <p>2. Advise Physician Consultation: Strongly encourage the user to consult their personal physician for any specific medical concerns or to determine if the test is appropriate for their individual health situation.</p>
+                    <p>3. Provide Test Information: Explain what the ordered Blood Vision panel covers and (if asked) what it doesn&#x27;t. Do not over-promise on what the test can detect.</p>
+                    <p>4. Do Not Interpret: Avoid interpreting how their specific medical condition might interact with the test or results.</p>
+                    <p>5. Refer to Terms of Service: Gently remind them that our terms of service outline our role as an informational service.</p>
                     <h4>During Test Scenarios</h4>
-                    <h5>Excessive Bleeding</h5>
-                    <p>Phlebotomist handles first aid, Blood Vision support calls 911 if severe.</p>
-
-                    <h5>Anxiety Response</h5>
-                    <p>Phlebotomist trained to handle vasovagal episodes, recommend lying down for future draws.</p>
-
+                    <p>1. Excessive Bleeding (Extreme)</p>
+                    <ul>
+                    <li>Phlebotomist On-Site (In-Lab or Mobile)</li>
+                    </ul>
+                    <p>1. Phlebotomist Action: Trained to apply first aid (direct pressure). For severe, uncontrolled bleeding, they will call 911. They will notify their dispatcher/Blood Vision.</p>
+                    <p>2. Blood Vision Support (If contacted during event): Instruct the user/caller to ensure 911 is called immediately. Discontinue non-essential conversation to avoid delaying emergency response.</p>
+                    <ul>
+                    <li>User Reports After Event</li>
+                    </ul>
+                    <p>1. Immediate Action: Check on the user&#x27;s well-being. Confirm they received appropriate medical care.</p>
+                    <p>2. Document Thoroughly: Record the incident in detail.</p>
+                    <p>3. Escalate Internally: Notify medical director and operations lead for liability and follow-up.</p>
+                    <p>4. Follow-Up: Coordinate any necessary follow-up, such as rescheduling a new draw if the first was incomplete, once the user is medically cleared.</p>
+                    <p>2. Anxiety Response (e.g., Fainting, Dizziness)</p>
+                    <ul>
+                    <li>Phlebotomist On-Site</li>
+                    </ul>
+                    <p>1. Phlebotomist Action: Trained to handle vasovagal episodes (e.g., reclining the patient, offering water/juice, ensuring safety). Will call 911 if the situation is serious or doesn&#x27;t resolve.</p>
+                    <ul>
+                    <li>User Reports to Support (During or After)</li>
+                    </ul>
+                    <p>1. If Still at Lab/With Phlebo: Instruct them to inform lab staff/phlebotomist immediately. 2. If After Leaving:</p>
+                    <ul>
+                    <li>Express Concern: &quot;I&#x27;m sorry you had that experience. How are you feeling now?&quot; Ensure they are okay.</li>
+                    <li>Immediate Advice: If still unwell, advise them to sit/lie down, drink water. If very dizzy, advise not to drive.</li>
+                    <li>Medical Check: If they hit their head or symptoms are severe/persistent, encourage a medical check-up.</li>
+                    <li>Reassurance: Explain fainting can happen, especially if fasting, and is not uncommon.</li>
+                    <li>Future Draws: Advise them to mention this history at future appointments so they can lie down during the draw as a preventative measure.</li>
+                    <li>Document: Record the incident. Flag account for future phlebotomists to use supine position if possible.</li>
+                    </ul>
+                    <h5>3. Multiple Pricks Needed to Get Blood (User is &quot;Pincushion&quot;) ● Action</h5>
+                    <p>1. Empathize &amp; Apologize: Acknowledge the discomfort and frustration. &quot;I&#x27;m sorry that happened, it sounds very uncomfortable.&quot;</p>
+                    <h5>2. If Blood Was Drawn Successfully</h5>
+                    <ul>
+                    <li>Focus on the positive: &quot;I&#x27;m glad they were able to get the sample eventually.&quot; ● Encourage prep tips for next time: hydration, warm clothes to keep veins dilated. ● If bruising occurs, advise using a cold pack for the first 24 hours, then warm compresses.</li>
+                    </ul>
+                    <h5>3. If Blood Was NOT Drawn / User Lost Confidence</h5>
+                    <ul>
+                    <li>Offer a reschedule with a different phlebotomist or at a different lab location. ● Offer to try and assign a more experienced mobile phlebotomist if possible. ● Reassure them it&#x27;s not their &quot;fault&quot; – some veins are trickier.</li>
+                    <li>Document the difficult draw in their file for future reference.</li>
+                    </ul>
+                    <p>4. Internal Review: Note if a particular lab location frequently has issues with difficult draws (via complaint patterns) to guide future lab recommendations.</p>
+                    <p>4. Uncooperative User or Phlebotomist</p>
+                    <ul>
+                    <li>If Phlebotomist is Rude/Unprofessional</li>
+                    </ul>
+                    <p>1. Empathize: &quot;I&#x27;m very sorry you had a bad experience; that&#x27;s not what we want for our users.&quot;</p>
+                    <p>2. Gather Details: Location, date/time, specific nature of the unprofessional conduct.</p>
+                    <p>3. Reassure Action: Inform the user that Blood Vision will follow up with the lab management/phlebotomy service (via Vital).</p>
+                    <p>4. Offer Alternatives: Suggest trying a different location for future draws if they are open to it.</p>
+                    <p>5. Service Recovery (for egregious incidents): Consider offering a free at-home draw next time or an account credit (pending supervisor approval).</p>
+                    <p>6. Internal Escalation: Log the complaint in the quality tracker to Vital. Multiple complaints about a site/person will be escalated for corrective action.</p>
+                    <ul>
+                    <li>If User is Uncooperative/Abusive (Phlebotomist reports or support observes)</li>
+                    </ul>
+                    <p>1. Phlebotomist Discretion: Phlebotomists have the right to refuse service if their safety is threatened or if the user is overly disruptive, preventing a safe draw.</p>
+                    <h5>2. Support Action</h5>
+                    <ul>
+                    <li>Maintain professionalism.</li>
+                    <li>Attempt to de-escalate if the interaction is with support.</li>
+                    <li>Document the incident thoroughly.</li>
+                    <li>If behavior is egregious, management may need to decide on future service eligibility.</li>
+                    </ul>
                     <h4>Post-Test Scenarios</h4>
-                    <h5>Bruising at Draw Site</h5>
-                    <p>Normal occurrence, advise warm compresses after 24 hours.</p>
+                    <p>1. Bruising at Draw Site</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Acknowledge &amp; Normalize: Explain that bruising can sometimes occur after a blood draw if a vein leaks a little.</p>
+                    <p>2. Gather Information: Ask if it&#x27;s just discoloration or if there&#x27;s significant swelling or a hard lump.</p>
+                    <h5>3. Provide Care Advice</h5>
+                    <ul>
+                    <li>Simple Bruise: Suggest applying warm compresses after the first 24 hours; it should fade.</li>
+                    <li>Significant Swelling/Pain (possible hematoma): Advise applying a cold pack for the first 24 hours, then switch to warm compresses. This typically resolves on its own.</li>
+                    </ul>
+                    <p>4. When to Seek Medical Advice: If pain is severe, swelling is very large or spreading, or if they have concerns, encourage them to see their doctor.</p>
+                    <p>2. Continued Pain at Draw Site</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Empathize &amp; Gather Details: &quot;I&#x27;m sorry to hear you&#x27;re still having pain. Can you describe it?&quot;</p>
+                    <h5>2. Assess Severity</h5>
+                    <ul>
+                    <li>Mild Soreness: This can be normal for a day or two. Advise rest for the arm. ● Significant/Persistent Pain: Encourage medical evaluation to rule out any complications.</li>
+                    </ul>
+                    <p>3. Check for Infection Signs (Rare): Ask if there&#x27;s redness, warmth, significant swelling, or discharge at the site. If yes, strongly advise seeing a doctor immediately as these could be signs of infection.</p>
+                    <p>4. Document: Record the user&#x27;s report.</p>
+                    <p>3. Secondary Bleeding (After Leaving Lab/Phlebotomist)</p>
+                    <ul>
+                    <li>Action</li>
+                    </ul>
+                    <h5>1. Advise Immediate Action</h5>
+                    <ul>
+                    <li>Instruct the user to apply firm, direct pressure to the site with a clean cloth or bandage for 5-10 minutes.</li>
+                    <li>Suggest elevating the arm if possible.</li>
+                    </ul>
+                    <p>2. When to Seek Medical Attention: If bleeding is significant (soaking through bandages quickly) or doesn&#x27;t stop after applying pressure, advise them to seek medical attention promptly.</p>
+                    <p>3. Review Post-Draw Care: Remind them of standard advice (keep bandage on for 30-60 mins, avoid heavy lifting).</p>
+                    <p>4. Report Delays / Missing Reports</p>
+                    <ul>
+                    <li>Expected Turnaround: Standard panels ~5-10 business days;</li>
+                    </ul>
+                    <p>comprehensive/specialized tests possibly 2+ weeks. Users are notified by email/app when ready.</p>
+                    <ul>
+                    <li>Action (If results are beyond the expected window and not received): 1. Apologize for Delay: Acknowledge their anticipation.</li>
+                    </ul>
+                    <p>2. Internal Check (Step 1): Support checks internally (via Vital access to lab interface using the the request/partner token) to see if results have been received from the lab but not pushed to the user&#x27;s account (potential IT issue).</p>
+                    <ul>
+                    <li>If results are in the lab interface: Escalate to our tech team to import them. Consider manually providing results to the user in the interim if feasible and secure.</li>
+                    </ul>
+                    <h5>Example</h5>
+                    <p>3. Lab Check (Step 2 - If not in interface): Contact the lab (via Vital) by flagging them on #junction-x-ultrahuman-cs to investigate the status. The test might be delayed or require a re-run. Obtain an ETA from the lab.</p>
+                    <h5>Example from Junction Dash</h5>
+                    <p>Example flagged thread: here</p>
+                    <h5>4. Communicate with User</h5>
+                    <ul>
+                    <li>Provide an honest update. If the cause is known (e.g., &quot;One of your test markers needed a confirmatory run, so it&#x27;s taking a bit longer&quot;), explain it.</li>
+                    <li>Give a new estimated date for results.</li>
+                    <li>Reassure them Blood Vision is actively monitoring it.</li>
+                    </ul>
+                    <p>5. If Sample Lost/Lab Error (True Failure): Arrange a redraw quickly at no cost to the user. Prioritize their next appointment.</p>
+                    <p>5. Refund-Related Concerns</p>
+                    <ul>
+                    <li>General Policy Recap</li>
+                    <li>Cancellation &gt;24h before draw, within 24h of purchase: Full refund. ● Cancellation &gt;24h before draw, after 24h of purchase (up to 60 days): Full refund</li>
+                    <li>No show at lab or at-home: 1st time waiver (no-fee), next time charge $50 administrative fee</li>
+                    <li>After Blood Has Been Drawn: No refund (service rendered).</li>
+                    <li>Unhappy with Results/Changed Mind: Generally no refund. Offer to clarify results, perhaps a discount on a future test if value is the concern.</li>
+                    <li>Memberships (if any): Not refundable once started; no proration for unused months/tests.</li>
+                    <li>Action</li>
+                    </ul>
+                    <p>1. Empathize: Understand the user&#x27;s concern.</p>
+                    <p>2. Clarify Policy: Gently explain the applicable refund policy based on their specific situation (timing of cancellation, sample status). Refer to Terms of Service.</p>
+                    <p>3. Address Misrepresentation Claims: If a user claims the service was misrepresented (e.g., &quot;thought a doctor consult was included&quot;), explain the misunderstanding. As a one-time exception, consider arranging a call with a clinician (unofficial, case-by-case). A refund is still not standard.</p>
+                    <h5>4. Service Failures (Grounds for Free Re-test/Recollection)</h5>
+                    <ul>
+                    <li>Sample unusable/results inconclusive due to lab error (hemolyzed, delayed sample). ● Phlebotomist failed to collect enough sample/kit compromised.</li>
+                    <li>User paid out-of-pocket due to Blood Vision error.</li>
+                    <li>Strong dispute of result accuracy (one courtesy re-test of a specific marker, once per user/issue ideally).</li>
+                    </ul>
+                    <p>5. Exceptional Refunds (for service failure where user doesn&#x27;t want redraw): Case-by-case basis, requires supervisor approval (policy TBD for amount). Empower support leads for this.</p>
+                    <p>6. Document: Thoroughly document all refund discussions and decisions.</p>
+                    <p>Refunds should ideally be processed as Manual refunds. However, if the user is too very irate and wants it to the source payment made, then we can make an exception and process a stripe refund (subject to approval by lead)</p>
+                    <ul>
+                    <li>Can we set up a phone line for customer support?</li>
+                    <li>We do not have a phone line for direct customer support. We suggest you communicate with Junction through slack for any inquiries you need help with. Our lab account phone number appears on the requisition and if a patient were to call that number, our team will respond on your behalf but this is not used as a customer support line specifically.</li>
+                    </ul>
+                        <div class="hero-callout" id="usa-ts">
+                            <h4>Testing &amp; Support</h4>
+                            <p>For live issues, post in #support-tech-oncall-requests and involve #junction-x-ultrahuman-cs for Vital coordination. Document everything inside the CRM and follow Junction dashboards for order-specific actions.</p>
+                        </div>
+                        </div>
+                    </div>
 
-                    <h5>Report Delays</h5>
-                    <p>Expected turnaround: Standard panels ~5-10 business days, comprehensive/specialized tests possibly 2+ weeks.</p>
+                    <div class="tab-content" id="uae-tab" hidden>
+                        <div class="blood-vision-hero">
+                            <button type="button" class="hero-button" data-target="uae-overview" aria-controls="uae-overview">
+                                <span class="hero-country">UAE</span>
+                                <span class="hero-title">Overview</span>
+                                <span class="hero-note">Limited Launch Playbook</span>
+                            </button>
+                            <button type="button" class="hero-button hero-button--meta" data-target="uae-ts" aria-controls="uae-ts">
+                                <span class="hero-tag">TS</span>
+                                <span class="hero-note">Troubleshooting</span>
+                            </button>
+                        </div>
+                        <div class="blood-vision-body">
+                                                    <h3 id="uae-overview">Blood Vision Pilot (UAE)</h3>
+                            <h4>Availability</h4>
+                            <p>The UAE program is currently live with a controlled beta across Dubai, Abu Dhabi, and Sharjah. Collections are executed through our Al-Borg Diagnostics partnership.</p>
+                            <p>Slots are surfaced in the Ultrahuman app within the Vision tab. If a user cannot see slots, capture their PIN and escalate to the BV ops group for manual scheduling.</p>
+
+                            <h4>Packages</h4>
+                            <p>The UAE beta mirrors the India Foundational and Advanced panels with localized ranges. Hormone and Menstrual panels are coming soon and should not be promised until communicated.</p>
+
+                            <h4>Logistics</h4>
+                            <ul>
+                                <li>Collections are at-home with mobile phlebotomists who travel in marked cars.</li>
+                                <li>Users receive WhatsApp coordination 12 hours before pickup.</li>
+                                <li>Phlebotomists carry bilingual consent/aftercare leaflets; remind users to request Arabic if required.</li>
+                            </ul>
+
+                            <h4>Escalations</h4>
+                            <p>Escalate to #blood-vision-uae-ops with the order ID for:</p>
+                            <ul>
+                                <li>Address changes inside 24 hours of slot start.</li>
+                                <li>Requests for clinic draws instead of home visits.</li>
+                                <li>Re-collections or sample integrity concerns.</li>
+                            </ul>
+
+                            <h4>Reporting</h4>
+                            <p>Partial reports take up to 48 hours, and final panels can take 4 business days due to cross-border lab review. Communicate the longer turnaround and log user expectations in the CRM.</p>
+                        <div class="hero-callout" id="uae-ts">
+                            <h4>Testing &amp; Support</h4>
+                            <p>Escalate same-day slot edits and quality issues to #blood-vision-uae-ops with the order ID. That channel routes to Al-Borg Diagnostics so the mobile phlebotomy crew can adjust itineraries or arrange re-collections.</p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -254,346 +562,23 @@
 
             <section id="ring-air" class="section">
                 <h2>Ring AIR</h2>
-                <div id="ring-air-content" class="document-content">
-                    <h3>Dead on Arrival (DOA)</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The user is trying to pair their new ring: The ring is experiencing an issue with starting up and pairing.</p>
-
-                    <h4>Resolution Steps</h4>
-                    <h5>STEP 1: Charger Test</h5>
-                    <p>Macro [Ring_Charger_Test]</p>
-                    <ul>
-                        <li>Confirm adapter type (≤20W, <2A)</li>
-                        <li>Test charging cable with other devices</li>
-                        <li>Check if charging dock LED turns purple without ring</li>
-                        <li>Check if LED changes to breathing white with ring placed</li>
-                        <li>If not breathing white, replace charger</li>
-                    </ul>
-
-                    <h5>STEP 2: Tap Flow</h5>
-                    <p>Macro [Tap_flow_with_LED]</p>
-                    <ol>
-                        <li>Place ring on charger for 30 seconds</li>
-                        <li>Gently tap ring on table (20-30 times)</li>
-                        <li>Wait for red LED to turn off, then green LED to appear</li>
-                        <li>Open app and attempt to connect</li>
-                    </ol>
-
-                    <h5>STEP 3: New Ring Setup Flow</h5>
-                    <p>Macro [New_Set_up_new_ring]</p>
-                    <ol>
-                        <li>Unpair ring from Bluetooth settings</li>
-                        <li>Toggle Bluetooth off/on</li>
-                        <li>Restart phone, reopen app</li>
-                        <li>Tap 'Connect Ring' from Home tab</li>
-                        <li>Test with different cable/adapter if needed</li>
-                    </ol>
-
-                    <h5>STEP 4: Ring Replacement</h5>
-                    <p>If all steps fail, escalate to ring replacement.</p>
-
-                    <h3>Troubleshooting Top Cases</h3>
-                    <h4>Ring Not Syncing</h4>
-                    <p>Check Bluetooth connection, app permissions, and device compatibility.</p>
-
-                    <h4>Low Battery Issues</h4>
-                    <p>Ensure proper charging setup and cable compatibility.</p>
-
-                    <h4>Firmware Update Problems</h4>
-                    <p>Keep app updated, ensure stable internet connection during updates.</p>
-
-                    <h4>Comfort and Fit Issues</h4>
-                    <p>Check ring size, ensure proper cleaning and maintenance.</p>
-
-                    <h3>Ring Not Charging</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The charger is working fine for the user, but the ring is not detecting the charge and picking up battery.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Step 1: Ring charger test</p>
-                    <p>We check the Fit of the ring to ensure that the sensors are oriented properly</p>
-                    <p>Macro: [#Ring_charger_test]</p>
-                    <ul>
-                        <li>Could you please confirm the type of adapter that you are using with the charging dock (Brand name and whether it is a normal or fast charger)? The adapter should be within 20 watts and less than 2 AMPS. Please attach images of the adapter for reference.</li>
-                        <li>Have you tested the charging cable with other devices to confirm its functionality? If possible, try using a different cable to rule out cable issues.</li>
-                        <li>When you switch on the charging dock without placing the ring on it, does the LED light turn purple?</li>
-                        <li>When you place the ring on the charging dock, does the LED light on the dock change to a breathing white light? If not, please flip the ring and observe the LED colour.</li>
-                    </ul>
-                    <p>This information will help us narrow down the potential causes of the charging issue and provide more targeted solutions.</p>
-                    <p>Step 2: If the charger is deemed to be faulty we replace the charger</p>
-                    <p>If the charger is working fine, we move ahead with the next steps</p>
-                    <p>Step 3: Check for Damage on the Ring's Hardware</p>
-                    <p>If the charger is confirmed to be working fine, we ask the user to check for any visible damage on the ring around its sensors and request relevant images for further assessment.</p>
-                    <p>Step 4:</p>
-                    <ul>
-                        <li>A: In case of observed hardware damage, replace the ring under hardware damage reasoning.</li>
-                        <li>B: In case there are no observed damages, replace the ring under battery failure reasoning.</li>
-                    </ul>
-
-                    <h3>Ring Battery- High drain</h3>
-                    <h4>Case Identifier</h4>
-                    <p>When the ring's battery drains rapidly: The battery lasts less than 4 days and requires frequent charging - this means the battery drain is MORE THAN 25% per day.</p>
-                    <p>General macro - battery_service_sop</p>
-
-                    <h4>Resolution</h4>
-                    <p>Route the user to the Battery Troubleshooting Wizard</p>
-                    <p>FALLBACK STEPS</p>
-                    <p>Step 1: Review ring data</p>
-                    <p>Macro: [#BDR_STEP1]</p>
-                    <p>Thank you for reaching out! We're here to solve this for you. To help you better, we'll review your ring's data and follow up shortly with the next steps. Please allow us some time to get back here.</p>
-                    <p>Things to be reviewed: Firmware version, battery state graph (dissipation Rate), CDT (High/Low), reset history</p>
-                    <p>Step 2: Upgrade Firmware (to the latest firmware)</p>
-                    <p>Macro: [#Pushto_Zephyr]</p>
-                    <p>I have pushed the latest firmware to your ring. Please quit the app completely, and reopen the app in a while. If you don't see the Firmware Update pop-up, it should appear within the next few hours (If it doesn't, please head to ring battery view > scroll down > "check for firmware update"). Once it does, follow the prompts and update your firmware. Once your firmware has been updated, please observe for a while. You shouldn't face these issues anymore :)</p>
-                    <p>Let us know how this goes or if you need any help!</p>
-                    <p>Once the user gets back, we move to the next step.</p>
-                    <p>Step 3: Factory reset</p>
-                    <p>Macro: Zephyr_New_FR</p>
-                    <p>Please go ahead and factory reset your ring here (Ring battery view > scroll down > factory reset > follow the prompts). Once this is done, keep the ring on the charger and you will notice a green LED light when the ring is placed on the charger. At this point, the ring will disconnect from the phone which is expected behaviour so don't worry! Once you see the green light, remove the ring from the charger and connect the ring.</p>
-                    <p>You can click here and view the process to factory reset the ring.</p>
-                    <p>After this reset, we need to enable Chill mode.</p>
-                    <p>Step 4: Enable "Chill mode" and keep it on for at least 48 hours</p>
-                    <p>Macro: chill_mode_enable</p>
-                    <p>To enable Chill Mode for your ring, please follow the steps below:</p>
-                    <ul>
-                        <li>Click on the ring icon on the top right of the ring homepage</li>
-                        <li>Click on Choose a Battery Usage Mode</li>
-                        <li>Toggle Chill mode</li>
-                    </ul>
-                    <p>After this, the user needs to observe the battery drain from 100% to 10%, while keeping chill mode enabled - and let us know when down to 10%. Then we check the rate of drain and for how many days the battery lasted.</p>
-                    <p>Step 5: In case of a high BDR post the above steps, we replace the ring.</p>
-                    <p>Battery Health Assessment</p>
-                    <p>All users must have 48 hours of Chill Mode data for accurate assessment (the dashboard shows "Calibrating" status until sufficient data collected)</p>
-                    <p>Battery health indicators:</p>
-                    <p>BDR (Battery Dissipation Rate) % drain per hour</p>
-                    <p>Good BDR: ≤1.0 (equals ≥4 days)</p>
-                    <p>Optimal BDR: ≤0.5 (equals ≥8 days)</p>
-                    <p>Replacement threshold: any user that has ≤4 days battery life</p>
-                    <p>(48 hours BDR battery life] after using Chill Mode for at least 48 hours warrants a replacement.</p>
-                    <p>If a customer is already frustrated with troubleshooting steps and is not on the latest firmware, please do not ask them to update it.If the customer has already tried the TSW and is clearly irritated:</p>
-                    <ul>
-                        <li>If within policy: Proceed with a replacement.</li>
-                        <li>If outside policy: Suggest a trade-in or Wabi ring, whichever the customer is more comfortable with.</li>
-                    </ul>
-                    <p>Please avoid suggesting any new firmware updates or additional TSW steps for already frustrated customers</p>
-                    <p>Note for the team: We now also have a dedicated dashboard for Battery troubleshooting. We filter out individual Ring details and share the resolution as suggested by the Dashboard</p>
-                    <p>Yellow/Flowchart</p>
-                    <p>Yellow Bot Flow</p>
-
-                    <h3>Ring Frequent Disconnection</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The ring frequently disconnects from the app: There are episodes of the ring disconnecting and reconnecting intermittently at rapid intervals</p>
-
-                    <h4>Resolution</h4>
-                    <p>STEP 1: Check Firmware</p>
-                    <p>Verify if the Ring is on the latest firmware.</p>
-                    <p>If the user is not on the latest firmware: Push the user to the latest firmware</p>
-                    <p>Macro [Pushto_Zephyr]</p>
-                    <p>I have pushed the latest firmware to your ring. Please quit the app completely, and reopen the app in a while. If you don't see the Firmware Update pop-up, it should appear within the next few hours (If it doesn't, please head to ring battery view > scroll down > "check for firmware update"). Once it does, follow the prompts and update your firmware. Once your firmware has been updated, please observe for a while. You shouldn't face these issues anymore :)</p>
-                    <p>Let us know how this goes or if you need any help!</p>
-                    <p>If the user is already on the latest firmware we directly Proceed to Step 2.</p>
-                    <p>STEP 2:</p>
-                    <p>Macro Name: [Frequent_RingDisconnection]</p>
-                    <p>Can you toggle your Bluetooth off and on, then restart your phone and then check whether the ring is connecting? Then let's keep it under observation for a few hours? You can get back to me, I will be here to help you and keep this chat open.</p>
-                    <p>Feel free to get back to me anytime—I will be here to assist you. Keeping this chat open for your convenience.</p>
-                    <p>STEP 3:</p>
-                    <p>If even after all these steps, if the issue still persists we replace the ring.</p>
-
-                    <h3>Ring not Connecting/Advertising</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The user is trying to pair their ring: The ring is experiencing an issue with advertising and pairing with the app.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Step 1:</p>
-                    <p>Macro Name: #ConnectionTS1</p>
-                    <p>Let's rule out the basics:</p>
-                    <ul>
-                        <li>Turn Off Power Saver Mode on Your Phone: Low battery (below 20%) can degrade Bluetooth performance. Charge your phone to maintain a stable connection.</li>
-                        <li>Disconnect Unused Bluetooth Devices: Having too many connected devices can block new connections. Disconnect unused devices from your phone's Bluetooth settings.</li>
-                    </ul>
-                    <p>Then, continue troubleshooting with these:</p>
-                    <ul>
-                        <li>Switch Off Wi-Fi Temporarily: Wi-Fi can occasionally interfere with Bluetooth. Turn it off briefly to improve connectivity.</li>
-                        <li>Toggle Bluetooth Off/On: Turn Bluetooth off, wait a few seconds, then turn it back on to refresh the connection.</li>
-                        <li>Complete a Bluetooth Reset: Keep the Ring on the charger → Turn off Bluetooth → Force-close the app → Re-enable Bluetooth → Remove the Ring from paired devices → Re-pair it via the Ultrahuman app.</li>
-                        <li>Try a Different Cable or Adapter: Faulty USB-C cables or power adapters can disrupt charging and connectivity. Switch both the cable and the power source (preferably a wall socket-based adapter).</li>
-                        <li>Reinstall the Ultrahuman App: Uninstall and reinstall the app from the App Store to fix persistent issues.</li>
-                    </ul>
-                    <p>Step 2:</p>
-                    <p>Macro Name: #ConnectionTS2</p>
-                    <p>As a last resort, we'll perform a Battery Drain Reset. This step ensures the ring undergoes a complete hardware reset, clearing its internal state and helping resolve issues related to Bluetooth connectivity or advertising.</p>
-                    <ol>
-                        <li>We have triggered the battery drain reset for you. You should now see a banner with a timer on the Ring tab of your app. This timer estimates the time it will take for the battery to fully drain. Note: If you don't see the banner, try killing and relaunching the app.</li>
-                        <li>Please do not place the Ring on the charger until the battery is completely drained, or it will interrupt the reset process.</li>
-                        <li>Once the battery is fully drained, you'll receive a push notification prompting you to reconnect. Please charge the ring for at least 30 minutes before you reattempt connecting the ring.</li>
-                    </ol>
-                    <p>If the ring still does not connect after completing this step, please let us know, and we will assist you further.</p>
-                    <p>Step 3: Replace if the above steps don't work, we replace</p>
-                    <p>Connection is replacement: The ring is advertising but not connecting to the app</p>
-                    <p>Not advertising replacement: The ring is not advertising on the Bluetooth settings</p>
-                    <p>If a customer is already frustrated with troubleshooting steps and is not on the latest firmware, please do not ask them to update it.If the customer has already tried the TSW and is clearly irritated:</p>
-                    <ul>
-                        <li>If within policy: Proceed with a replacement.</li>
-                        <li>If outside policy: Suggest a trade-in or Wabi ring, whichever the customer is more comfortable with.</li>
-                    </ul>
-                    <p>Please avoid suggesting any new firmware updates or additional TSW steps for already frustrated customers</p>
-                    <p>Yellow/Flowchart</p>
-                    <p>Bot Flow</p>
-
-                    <h3>Ring only connects on the charger</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The ring connects to the app only when it is on the charger. Once removed from the charger, it disconnects.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Ask for ring images and check for battery bulges or damage near the sensor, if there is damage replace it directly.</p>
-                    <p>If there is no damage:</p>
-                    <p>Step 1: Check Firmware</p>
-                    <p>Verify if the Ring is on the latest firmware. If not updated, then push to the latest firmware:</p>
-                    <p>Macro [Pushto_Zephyr]</p>
-                    <p>I have pushed the latest firmware to your ring. Please quit the app completely, and reopen the app in a while. If you don't see the Firmware Update pop-up, it should appear within the next few hours (If it doesn't, please head to ring battery view > scroll down > "check for firmware update"). Once it does, follow the prompts and update your firmware. Once your firmware has been updated, please observe for a while. You shouldn't face these issues anymore :)</p>
-                    <p>Let us know how this goes or if you need any help!</p>
-                    <p>Step 2: Factory Reset</p>
-                    <p>Macro [Zephyr_New_FR]</p>
-                    <p>Please go ahead and factory reset your ring here (Ring battery view > scroll down > factory reset > follow the prompts). Once this is done, keep the ring on the charger and you will notice a green LED light when the ring is placed on the charger. At this point, the ring will disconnect from the phone which is expected behaviour so don't worry! Once you see the green light, remove the ring from the charger and connect the ring.</p>
-                    <p>You can click here and view the process to factory reset the ring.</p>
-                    <p>After this, your ring should get connected and you shouldn't face these issues :)</p>
-                    <p>Let us know if you need any help!</p>
-                    <p>Keep the Ring on the charger for 15 minutes after the reset. After 15 minutes, observe the ring until the end of the day.</p>
-                    <p>Step 3: Issue persists, then replace</p>
-                    <ul>
-                        <li>A: In case of observed hardware damage, replace the ring under hardware damage reasoning.</li>
-                        <li>B: In case there are no observed damages, replace the ring under battery failure reasoning.</li>
-                    </ul>
-
-                    <h3>Ring State 10- No contact detected</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The ring is not detecting any contact with the finger: The user's heart rate and skin temperature data do not appear on their homepage.</p>
-                    <p>Backend identifier: Ring state 10.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Ring fit Check</p>
-                    <p>We check the Fit of the ring to ensure that the sensors are oriented properly</p>
-                    <p>Macro: [#HR9_Incorrect_Sleep_TS1]</p>
-                    <ul>
-                        <li>Could you please confirm the below details:</li>
-                        <li>1. Can you confirm how the ring fits you? The ring can be worn on the index, middle, or ring finger and should fit snugly (not too tight or too loose). To remove the ring, push from the bottom and slide it off. For accurate readings, ensure the sensors, marked by a small bulge on the inner side of the ring emitting green lights, are facing the inner side of your palm. Please refer to the attached image for clarification.</li>
-                        <li>2. Could you share a close-up image of the sensors on the ring? This would be the area with the small bump on the inner side of the ring.</li>
-                    </ul>
-                    <p>Ring Firmware Check</p>
-                    <p>Macro: [#Pushto_Zephyr]</p>
-                    <p>We check the firmware version and upgrade to the relevant version + push a soft reset</p>
-                    <p>We run all checks and then basis the findings we move to Step 3, in case the issue persists</p>
-                    <p>Recommend a factory reset</p>
-                    <p>Macro: [Zephyr_New_FR]</p>
-                    <p>Please go ahead and factory reset your ring here (Ring battery view > scroll down > factory reset > follow the prompts). Once this is done, keep the ring on the charger and you will notice a green LED light when the ring is placed on the charger. At this point, the ring will disconnect from the phone which is expected behavior so don't worry! Once you see the green light, remove the ring from the charger and connect the ring.</p>
-                    <p>You can click here and view the process to factory reset the ring.</p>
-                    <p>After this, your ring should get connected and you shouldn't face these issues :)</p>
-                    <p>Let us know if you need any help!</p>
-                    <p>Recommend workout mode</p>
-                    <p>Macro: [#Zephyr_breathwork_workout]</p>
-                    <p>Can you please try enabling the workout mode on the app for a few minutes and wait till your data populates? This should fix the issue. You can then observe going forward - the data should sync fine :)</p>
-                    <p>Do let us know if your data doesn't populate here!</p>
-                    <p>Step 5: If nothing works, replace the ring.</p>
-
-                    <h3>Ring Step 0- No steps picked</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The user's step count does not update: No step data is reflected on the Movement Index.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Step 1: Check Firmware</p>
-                    <p>Verify if the Ring is on the latest firmware. If not, push the latest firmware update.</p>
-                    <p>Macro Name [Pushto_Zephyr]</p>
-                    <p>I have pushed the latest firmware to your Ring. Please quit the app completely and reopen it after a while. If you don't see the firmware update pop-up immediately, it should appear within the next few hours. If not, go to Ring Battery View → Scroll down → Tap Check for Firmware Update. Follow the prompts to complete the update.</p>
-                    <p>Once your firmware is updated, please observe the device for a while. You shouldn't face these issues anymore.</p>
-                    <p>Let us know how it goes or if you need any help!"</p>
-                    <p>Once updated, charge the Ring for 15 minutes. Observe its behavior for a couple of days.</p>
-                    <p>Note: In case the user is already on the latest firmware, We directly move to step 2</p>
-                    <p>Step 2: If the Issue Persists</p>
-                    <p>Please let us know. We will trigger a soft reset command from the backend.</p>
-                    <p>Macro Name [Soft_Rest]</p>
-                    <p>We have triggered a soft reset for you from the backend. Kindly close and reopen the app in a minute and observe the Ring's behavior."</p>
-                    <p>Step 3: If the Soft Reset Doesn't Work. Please perform a factory reset</p>
-                    <p>Macro Name [Zephyr_New_FR]</p>
-                    <p>Please go ahead and factory reset your ring here (Ring battery view > scroll down > factory reset > follow the prompts). Once this is done, keep the ring on the charger and you will notice a green LED light when the ring is placed on the charger. At this point, the ring will disconnect from the phone which is expected behavior so don't worry! Once you see the green light, remove the ring from the charger and connect the ring.</p>
-                    <p>You can click here and view the process to factory reset the ring.</p>
-                    <p>After this, your ring should get connected and you shouldn't face these issues :)</p>
-                    <p>Let us know if you need any help!</p>
-                    <p>Step 4: Post this if the issue persists, please replace the ring.</p>
-
-                    <h3>HR Sensor Failure: Constant Red light on the ring</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The ring has a constant red light flashing from the sensor</p>
-
-                    <h4>Resolution</h4>
-                    <p>STEP 1: Factory Reset The Ring</p>
-                    <p>Macro Name [Zephyr_New_FR]</p>
-                    <p>Please go ahead and factory reset your ring here (Ring battery view > scroll down > factory reset > follow the prompts). Once this is done, keep the ring on the charger and you will notice a green LED light when the ring is placed on the charger. At this point, the ring will disconnect from the phone which is expected behavior so don't worry! Once you see the green light, remove the ring from the charger and connect the ring.</p>
-                    <p>You can click here and view the process to factory reset the ring.</p>
-                    <p>After this, your ring should get connected and you shouldn't face these issues :)</p>
-                    <p>Let us know if you need any help!</p>
-                    <p>STEP 2: If the red light is still visible after step 1, we replace the ring.</p>
-
-                    <h3>Incorrect Movement Index</h3>
-                    <h4>Case Identifier</h4>
-                    <p>Discrepancy in the step count: The ring is either underreporting or overreporting the step count, or there is a discrepancy when comparing the step counts across different wearables.</p>
-
-                    <h4>Resolution</h4>
-                    <p>Step 1: Ring fit check</p>
-                    <p>Check the fit of the ring and the firmware version→ upgrade to the latest version + push a soft reset</p>
-                    <p>Macro [#HR9_Incorrect_Sleep_TS1]</p>
-                    <ul>
-                        <li>Could you please confirm the below details:</li>
-                        <li>1. Can you confirm how the ring fits you? The ring can be worn on the index, middle, or ring finger and should fit snugly (not too tight or too loose). To remove the ring, push from the bottom and slide it off. For accurate readings, ensure the sensors, marked by a small bulge on the inner side of the ring emitting green lights, are facing the inner side of your palm. Please refer to the attached image for clarification.</li>
-                        <li>2. Could you share a close-up image of the sensors on the ring? This would be the area with the small bump on the inner side of the ring.</li>
-                    </ul>
-                    <p>Step 2: Ring Firmware Check</p>
-                    <p>We check the firmware version and upgrade to the relevant version</p>
-                    <p>Macro [#Pushto_Zephyr]</p>
-                    <p>I have pushed the latest firmware to your ring. Please quit the app completely, and reopen the app in a while. If you don't see the Firmware Update pop-up, it should appear within the next few hours (If it doesn't, please head to ring battery view > scroll down > "check for firmware update"). Once it does, follow the prompts and update your firmware. Once your firmware has been updated, please observe for a while. You shouldn't face these issues anymore :)</p>
-                    <p>Let us know how this goes or if you need any help!</p>
-                    <p>STEP 3: If the user is on the latest firmware, check the scale of discrepancy by asking for the relevant data points (in case of comparison against any other wearable) and communicate the users the</p>
-                    <p>OMS Actions</p>
-                    <p>Ring steps 0</p>
-                    <p>This is solved by the wizard flow here:</p>
-                    <p>Step data incorrect</p>
-                    <p>Check with the user if they are comparing this with another wearable</p>
-                    <p>If the wearable vs the ring's step count is under 10%, we can inform the user that each wearable tracks steps data according to their own algorithm and hence, 10% diffrence is within the margin of error</p>
-                    <p>In case the step count is way off, check for fit and update firmware + soft reset on backend</p>
-                    <p>In case the step count does not improve, flag this to tech</p>
-                    <p>Flowchart</p>
-                    <p>https://miro.com/welcomeonboard/OE1takpKM3hsOGptSVNjblFCbVJHazZnU2lvSnl0UFVVeTlXSTNWa1FxNXhrWUpIRHpTcU</p>
-                    <p>share_link_id=810409693746</p>
-
-                    <h3>Incorrect Sleep data</h3>
-                    <h4>Case Identifier</h4>
-                    <p>The user may face one of the following issues:</p>
-                    <ul>
-                        <li>The sleep index is missing for the day.</li>
-                        <li>The sleep has been incorrectly detected by the ring.</li>
-                    </ul>
-
-                    <h4>Resolution</h4>
-                    <p>STEP 1: Ring fit Check</p>
-                    <p>We check the Fit of the ring to ensure that the sensors are oriented properly</p>
-                    <p>Macro [HR9_Incorrect_Sleep_TS1]</p>
-                    <ul>
-                        <li>Could you please confirm the below details:</li>
-                        <li>1. Can you confirm how the ring fits you? The ring can be worn on the index, middle, or ring finger and should fit snugly (not too tight or too loose). To remove the ring, push it from the bottom and slide it off. For accurate readings, ensure the sensors, marked by a small bulge on the inner side of the ring emitting green lights, are facing the inner side of your palm. Please refer to the attached image for clarification.</li>
-                        <li>2. Could you share a close-up image of the sensors on the ring? This would be the area with the small bump on the inner side of the ring.</li>
-                    </ul>
-                    <p>Note: Once the user confirms this, the agent conducts the checks backend to check if all the sleep metrics are working fine.</p>
-                    <p>STEP 2: Ring Firmware Check</p>
-                    <p>We check the firmware version and upgrade to the relevant version + push a soft reset</p>
-                    <p>We run all checks and then basis the findings we move to Step 3, in case the the issue persists</p>
-                    <p>OMS Actions:</p>
-                    <ul>
-                        <li>Ring did not capture data: We do this, by going to : Ring data → Sleep indices and pull the data for the same day. We are looking for a non "-1" reading as that indicates no sleep data captured. If the sleep data was not captured, check the ring's battery. If you see that the ring's battery is close to zero, we can inform the user here that the ring can only capture data as long as it has charge. Since the ring died before the data got synced with the phone, the sleep data was lost. We can then inform the user to ensure the ring has sufficient charge regularly. In case the user's battery did not have any issues, check the ring state data to see for any abnormalities. Normally, the ring should show ≥50 which indicates that the data is getting collected. If ring state is also looking normal, check if the record indice count went to 0. This indicates a firmware crash which can also wipe the data. If yes, for any of the above conditions, we can ask the user to update the firmware and perform a soft reset as well.</li>
-                        <li>Ring data captured is incorrect: Ring data → Sleep diagnosis → Enter the user's detail for the day and check the sleep start and end times. Look for high amount of motion. Check with the user if they had a disturbed night of sleep or if the ring fits the user well. If not, push the ask the user to update the firmware and perform a soft reset as well. In case the sleep data does not improve, flag this to tech</li>
-                    </ul>
-                    <p>STEP 2: Flag to tech team on slack</p>
-                    <p>Flowchart</p>
-                    <p>https://miro.com/welcomeonboard/OE1takpKM3hsOGptSVNjblFCbVJHazZnU2lvSnl0UFVVeTlXSTNWa1FxNXhrWUpIRHpTcU</p>
-                    <p>share_link_id=810409693746</p>
+                                <div id="ring-air-content" class="document-content">
+                    <div class="ring-air-embed">
+                        <div class="ring-air-embed__intro">
+                            <h3>Ultrahuman Ring AIR Knowledge Base</h3>
+                            <p>The full Ultra-CX Bible export for Ring AIR is embedded below so every section from the screenshots&mdash;product overview, sizing, circadian rhythm guidance, app walkthroughs, battery wizard, and referral flows&mdash;is available with the exact copy, images, and attachments.</p>
+                            <ul class="ring-air-embed__highlights">
+                                <li>Product overview, key features, box contents, and colorways</li>
+                                <li>App walkthrough + metrics, biomarker explainers, and circadian rhythm playbooks</li>
+                                <li>Battery Health Wizard, troubleshooting flows, sizing charts, and referral guides</li>
+                            </ul>
+                        </div>
+                        <iframe
+                            src="G%20Docs/Updated/The%20Ultra-CX%20Bible%201b2755317a9180dc8e17f8951755fa44.html#1b475531-7a91-80bf-b030-dfc7188425fd"
+                            title="Ultrahuman Ring AIR CX Bible"
+                            loading="lazy">
+                        </iframe>
+                    </div>
                 </div>
             </section>
 
@@ -1142,6 +1127,10 @@
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2024 Ultrahuman CX Codex. Internal Documentation.</p>
+            <div class="footer-glass-logo" aria-hidden="true">
+                <span class="glass-text">ULTRAHUMAN</span>
+                <span class="glass-blur"></span>
+            </div>
         </div>
     </footer>
 
@@ -1150,3 +1139,4 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
