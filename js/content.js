@@ -155,6 +155,8 @@ const contentData = {
             <p>sensor_scan_not_working Sensor Sensor fails to successfully scan and enter the 60 min warm up stage This is a possible NFC not working situation. Three troubleshooting techniques we go for - a) Restarting the phone b) Uninstalling and reinstalling the app c) Logging out and logging in If the user is on an iPhone, simply asking them the iPhone works. If the NFC issue persists, request the user to check with family/friends for an NFC enabled phone. The start once they successfully activate their sensor worries there. Also, the sensor stores data for if there's anyone's phone that they could use once every 7 hours, that would do it. The user be logged in from multiple devices using the same details, so they can monitor from their phone make all the necessary inputs and just use the friends/family phone for scanning. Some quirky pointers - If the user is using a Samsung phone, ask them to off their case and use the back side of their phone scan the sensor. Sometimes the case's thickness the NFC from working properly. There seems to be some problem with OnePlus phone's NFC. Just confirm the phone model or proceeding with troubleshooting problems.</p>
             <p>sensor_invalid_readings Sensor Sensor is reporting invalid readings (≤40 or ≥500) for over 6-8 hours. Readings less than 40 and higher than 500 considered invalid readings. Check this data on Stints place of the Ops Dash. If invalid readings persist for over 6 hours, replace. If the user is in the first 24 hours, we ask them for the first 24 hour window.</p>
             <p>sensor_invalid_reading_midway Sensor Cyborgs graph isn't updating upon scanning/stuck at the same value Check 'CGM Stints/Lifetime Data' on the ops dashboard. Look for readings below 40 or above If it's Day 1 on the sensor, let the user know sensor takes 24 hours to calibrate. If it's past Day 1 and the sensor has been replaced invalid readings for over 6-8 hours, process a replacement.</p>
+        `
+    },
     'ring-air': {
         title: 'Ring AIR Documentation',
         content: `
@@ -715,7 +717,105 @@ const contentData = {
     }
 };
 
+// Override PowerPlug content with updated FAQ/overview
+contentData['powerplug'] = {
+    title: 'PowerPlug Documentation',
+    content: `
+    <div class="pp-bubble-row" role="tablist" aria-label="PowerPlug views">
+        <button class="pp-bubble active" data-target="pp-overview" role="tab" aria-selected="true">
+            <span class="pp-label">
+                <strong>Overview</strong>
+            </span>
+        </button>
+        <button class="pp-bubble" data-target="pp-explore" role="tab" aria-selected="false">
+            <span class="pp-label">
+                <strong>Explore PowerPlugs</strong>
+            </span>
+        </button>
+    </div>
+
+    <div id="pp-overview" class="pp-pane active">
+    <h3>What are PowerPlugs?</h3>
+    <p>PowerPlugs are Ultrahuman's next-generation platform of modular health features built on top of your Ring AIR data. They allow you to personalize your Ultrahuman experience by unlocking specific insights, capabilities, and tools that match your health goals.</p>
+    <p>Think of them as <em>intelligent extensions</em> of your Ring AIR &mdash; optional PowerUps designed to go deeper into areas like sleep, recovery, women's health, heart health, or daily rhythm.</p>
+    <p>Each PowerPlug analyzes your existing physiological signals through advanced algorithms and presents science-backed insights without altering your core Ultrahuman experience. Whether it's understanding your Vitamin D rhythm, tracking your ovulation phase, or detecting early signs of atrial fibrillation (AFib), PowerPlugs give you the freedom to choose what matters most to you.</p>
+
+    <hr />
+
+    <h3>How do I activate PowerPlugs?</h3>
+    <ol>
+        <li>Open the Ultrahuman App and go to your Ring AIR homepage.</li>
+        <li>Tap <strong>'Activate more PowerPlugs.'</strong></li>
+        <li>Browse through the available options.</li>
+        <li>Select the PowerPlug you'd like to add and tap <strong>'Get.'</strong></li>
+    </ol>
+    <p>If it's a premium PowerPlug, you'll be redirected to your app store to complete your purchase. Once installed, it will appear in your active PowerPlugs list and start working seamlessly with your existing data.</p>
+
+    <hr />
+
+    <h3>Why are some PowerPlugs paid?</h3>
+    <p>Some PowerPlugs require deeper computational models, medical-grade validation, or licensed algorithms that go beyond standard wellness analytics. These involve clinical testing, regulatory compliance, and data infrastructure that ensure medical accuracy and reliability.</p>
+    <p>By offering both <strong>free and premium</strong> PowerPlugs, Ultrahuman ensures everyone has access to essential wellness insights while providing more specialized, research-backed tools for those who want advanced health analysis.</p>
+    <p>Premium PowerPlugs are optional add-ons &mdash; they enhance your experience but never restrict access to Ultrahuman's core features like sleep, recovery, stress, and activity tracking.</p>
+
+    <hr />
+
+    <h3>What are the PowerPlugs available today?</h3>
+
+    <h4><strong>Free PowerPlugs</strong></h4>
+    <ul>
+        <li><strong>Vitamin D PowerPlug</strong> &mdash; Understand how sunlight exposure impacts your circadian rhythm and vitamin D synthesis.</li>
+        <li><strong>Caffeine Window</strong> &mdash; Identify when caffeine helps versus when it disrupts your recovery and sleep.</li>
+        <li><strong>Circadian Alignment</strong> &mdash; Optimize activity and rest times based on your biological rhythm.</li>
+        <li><strong>Cycle Tracking</strong> &mdash; Predict and understand your cycle phases using multi-biomarker analysis (temperature, HRV, RHR).</li>
+        <li><strong>Pregnancy Insights</strong> &mdash; Track key changes and trends through different stages of pregnancy.</li>
+    </ul>
+
+    <h4><strong>Premium PowerPlugs</strong></h4>
+    <ul>
+        <li><strong>Cycle &amp; Ovulation Pro</strong> &mdash; Built using clinically validated OvuSense technology and 15 years of research; delivers >90% accuracy for ovulation confirmation and supports diverse cycle types including PCOS and endometriosis.</li>
+        <li><strong>AFib Detection</strong> &mdash; The world's first smart ring feature capable of detecting atrial fibrillation using medical-grade PPG sensing and algorithmic validation.</li>
+        <li><strong>Cardio Adaptability</strong> &mdash; Advanced cardiovascular insights measuring how effectively your heart adapts to stress and recovery patterns.</li>
+    </ul>
+
+    <hr />
+
+    <h3>Where is AFib Detection available?</h3>
+    <p>AFib Detection is currently available in <strong>Europe, the UK, Turkey, and Switzerland</strong>, with expansion plans for the <strong>USA, UAE, and India</strong> underway.</p>
+    <p>Regional availability depends on regulatory clearance in each geography, ensuring that users receive medically validated and compliant reports.</p>
+
+    <hr />
+
+    <h3>Can I change my PowerPlug subscription plan?</h3>
+    <ol>
+        <li>Go to the <strong>PowerPlugs</strong> section.</li>
+        <li>Tap the <strong>settings icon</strong> next to any active PowerPlug.</li>
+        <li>From there, you can switch between <strong>monthly</strong> and <strong>annual</strong> plans, restore previous purchases, or update payment options at any time.</li>
+    </ol>
+    <p>Your data and insights remain securely stored and continue seamlessly when you modify or renew a subscription.</p>
+    </div>
+
+    <div id="pp-explore" class="pp-pane" hidden>
+        <h3>Explore PowerPlugs</h3>
+        <ul class="pp-name-list">
+            <li><button type="button" data-key="vitamin-d">Vitamin D PowerPlug</button></li>
+            <li><button type="button" data-key="caffeine-window">Caffeine Window</button></li>
+            <li><button type="button" data-key="circadian-alignment">Circadian Alignment</button></li>
+            <li><button type="button" data-key="cycle-tracking">Cycle Tracking</button></li>
+            <li><button type="button" data-key="pregnancy-insights">Pregnancy Insights</button></li>
+            <li><button type="button" data-key="cycle-ovulation-pro">Cycle &amp; Ovulation Pro</button></li>
+            <li><button type="button" data-key="afib-detection">AFib Detection</button></li>
+            <li><button type="button" data-key="cardio-adaptability">Cardio Adaptability</button></li>
+        </ul>
+        <div class="pp-detail" id="pp-detail" hidden></div>
+    </div>
+    `
+};
+
+const powerplugHtml = contentData['powerplug'].content;
+
 // Function to load content for a section
+
 function loadContent(sectionId) {
     const contentElement = document.getElementById(sectionId + '-content');
     if (contentElement && contentData[sectionId]) {
@@ -725,10 +825,269 @@ function loadContent(sectionId) {
 
 // Load all content on page load
 document.addEventListener('DOMContentLoaded', function() {
+    const powerplugEl = document.getElementById('powerplug-content');
+    if (powerplugEl) {
+        powerplugEl.innerHTML = powerplugHtml;
+        initPowerplugBubbles();
+    }
+
     Object.keys(contentData).forEach(sectionId => {
+        if (sectionId === 'powerplug') return; // already initialized with bubble interactions
         loadContent(sectionId);
     });
     console.log('Content loaded successfully');
 });
+
+function initPowerplugBubbles() {
+    const container = document.getElementById('powerplug-content');
+    if (!container) return;
+    const bubbles = container.querySelectorAll('.pp-bubble');
+    const panes = container.querySelectorAll('.pp-pane');
+    const detail = container.querySelector('#pp-detail');
+    const detailButtons = container.querySelectorAll('.pp-name-list button');
+    const listWrap = container.querySelector('.pp-name-list');
+    const explorePane = container.querySelector('#pp-explore');
+
+    const detailCopy = {
+        'vitamin-d': `
+            <h4>Vitamin D PowerPlug</h4>
+            <p>Vitamin D plays a critical role in maintaining optimal body functions. It influences muscle, bone, and immune system health, aids in calcium absorption, and supports muscle movement.</p>
+            <p>It also helps transmit messages from the brain to the body and bolsters the immune system by combating bacteria and viruses. While Vitamin D can be obtained from food, the most effective source is exposure to sunlight. By optimizing your skin’s absorption of sunlight, you can meet your daily Vitamin D intake more efficiently.</p>
+            <h5>Introducing the Vitamin D PowerPlug</h5>
+            <p>Monitor the amount of Vitamin D you get throughout the day. Access personalised goals and insights based on your skin type. By nudging you towards sunlight exposure during different times of the day, this PowerPlug naturally helps you optimize your Vitamin D levels efficiently.</p>
+            <ol>
+                <li><strong>Monitor your daily intake</strong> &mdash; Goals are customized to your skin type and location.</li>
+                <li><strong>Understand sunlight exposure</strong> &mdash; See how many hours you need and when UV exposure may burn your skin.</li>
+                <li><strong>Maximise absorption</strong> &mdash; Discover the best hours and durations to meet your goal.</li>
+            </ol>
+            <p>Tracking Vitamin D helps improve muscle health, bone health, and immune function. This PowerPlug is live in the Ultrahuman App.</p>
+        `,
+        'caffeine-window': `
+            <h4>Caffeine Window</h4>
+            <p>Caffeine Window upgrade now offers real-time tracking of body caffeine levels, personalized cut-off recommendations, and effortless logging via a vast beverage library. Integrated with Brain Waste Clearance, it adapts based on your sleep quality to protect long-term cognitive health.</p>
+            <p><a href="https://www.notion.so/21c755317a91806e8f22e67134e9ad04?pvs=21" target="_blank" rel="noopener noreferrer">Read our Caffeine Window FAQ</a></p>
+
+            <h5>How Caffeine Window works</h5>
+            <p><strong>Personalized caffeine window</strong> &mdash; Opens 90 minutes after you wake up so adenosine clears naturally. Waiting sharpens caffeine’s impact and reduces crashes. A default cut-off warns when late caffeine could impair deep sleep; logging intake unlocks personalized cut-offs.</p>
+            <p><strong>Dynamic body caffeine</strong> &mdash; Every logged drink updates body caffeine levels, decay, and cut-off time so you can manage intake intelligently.</p>
+            <p><strong>Easy logging</strong> &mdash; Log from the Caffeine Bar with hundreds of beverages; tagged drinks stay in recents for one-tap logging. Delete logs directly from the graph or timeline.</p>
+
+            <h5>Now syncs with Brain Waste Clearance</h5>
+            <ul>
+                <li>Strong clearance: earn a <em>Caffeine Bonus</em> and a later cut-off.</li>
+                <li>Mildly impaired: get an <em>Early Cut-Off</em> recommendation.</li>
+                <li>Poor clearance: a <em>Caffeine Detox</em> day is recommended to protect deep sleep and reset.</li>
+            </ul>
+
+            <h5>Why caffeine timing matters</h5>
+            <p>Late caffeine can fragment sleep and reduce deep sleep even if you fall asleep normally. Deep sleep fuels Brain Waste Clearance (glymphatic clearance) that removes harmful byproducts like beta-amyloid and tau. Chronic poor clearance is linked to Alzheimer’s and cognitive decline.</p>
+
+            <p><strong>Visuals</strong></p>
+            <p><img src="https://blog.ultrahuman.com/wp-content/uploads/2025/06/body-caffeine-levels-1024x576.jpg" alt="Body caffeine levels" loading="lazy"></p>
+            <p><img src="https://blog.ultrahuman.com/wp-content/uploads/2025/06/why-caffeine-timing-matters-1024x576.jpg" alt="Why caffeine timing matters" loading="lazy"></p>
+            <p><img src="https://blog.ultrahuman.com/wp-content/uploads/2025/06/caffeine-detox-1024x576.jpg" alt="Caffeine detox recommendation" loading="lazy"></p>
+        `,
+        'cycle-ovulation-pro': `
+            <h4>Cycle &amp; Ovulation PowerPlug</h4>
+            <p>The Cycle &amp; Ovulation PowerPlug delivers personalized, real-time menstrual insights using your physiology, not calendar averages. It continuously monitors skin temperature, resting heart rate (RHR), and heart rate variability (HRV) to identify hormonal transitions with greater precision.</p>
+
+            <h5>Key features</h5>
+            <ul>
+                <li><strong>Conception Mode:</strong> Estimates ovulation day and the most fertile days from your physiological signals and adapts as your cycle progresses.</li>
+                <li><strong>Cycle Tracking Mode:</strong> Detailed follicular, ovulatory, luteal, and menstrual phase views plus period predictions from your biomarker patterns.</li>
+            </ul>
+
+            <h5>Core metrics</h5>
+            <ul>
+                <li><strong>Skin temperature:</strong> Progesterone-driven rise after ovulation, tracked during sleep to spot follicular-to-luteal shifts.</li>
+                <li><strong>Ovulation phase:</strong> Identified via temperature rise + RHR bump + HRV dip (LH surge and progesterone changes).</li>
+                <li><strong>Cycle prediction:</strong> Blends history with daily biomarkers; adapts for stress, travel, or illness.</li>
+                <li><strong>HRV baseline (30-day):</strong> Estrogen lifts HRV; progesterone lowers it. Baseline filters out one-off bad nights.</li>
+                <li><strong>RHR baseline (30-day):</strong> Lowest early cycle, rises toward/after ovulation; averaged to remove noise.</li>
+                <li><strong>Fertile phase:</strong> Five days before ovulation through the day after; multi-day heads-up beyond LH strips.</li>
+                <li><strong>Cycle regularity:</strong> Leans on history if regular; weights real-time signals if irregular (PCOS, perimenopause).</li>
+                <li><strong>Period length &amp; cycle length:</strong> Tracked over time to refine predictions and surface changes.</li>
+            </ul>
+
+            <h5>Biomarker behavior by phase</h5>
+            <p><strong>Follicular:</strong> Temp steady; HRV higher; RHR lower.</p>
+            <p><strong>Ovulation:</strong> Temp starts rising; HRV dips; RHR rises modestly.</p>
+            <p><strong>Luteal:</strong> Temp elevated; HRV lower; RHR elevated.</p>
+            <p>These trends create a high-resolution view even when cycle length varies month to month.</p>
+
+            <h5>Why this matters</h5>
+            <p>Your cycle affects sleep, glucose response, performance, and recovery. Aligning workouts, recovery, and nutrition with your current phase reduces friction, improves consistency, and delivers forecasts tailored to you.</p>
+
+            <h5>Visuals</h5>
+            <div class="pp-visuals">
+                <figure>
+                    <img src="Slide-16_9-18-1536x714.jpg" alt="Cycle Tracking screen showing luteal phase" loading="lazy" onerror="this.onerror=null;this.src='https://dummyimage.com/900x500/ededed/555555&text=Cycle+Tracking+Luteal+Preview';">
+                    <figcaption>Cycle Tracking: luteal phase view.</figcaption>
+                </figure>
+                <figure>
+                    <img src="Conception-759x1536-1-768x432.jpg" alt="Conception, logging, and prediction screens" loading="lazy" onerror="this.onerror=null;this.src='https://dummyimage.com/1200x600/ededed/555555&text=Cycle+Conception+%7C+Logging+%7C+Prediction';">
+                    <figcaption>Conception mode, cycle logging, and period prediction screens.</figcaption>
+                </figure>
+            </div>
+
+            <h4 style="margin-top:16px;">Cycle &amp; Ovulation FAQs</h4>
+            <p>The PowerPlug uses skin temperature, HRV, RHR, sleep patterns, and stress/recovery to help you understand and act on your cycle.</p>
+            <ul>
+                <li><strong>Predict periods and ovulation:</strong> Real-time physiology beats calendar guesses.</li>
+                <li><strong>Adapt training and recovery:</strong> Match intensity to hormonal shifts.</li>
+                <li><strong>Spot irregularities early:</strong> Monitor changes in length or symptoms.</li>
+            </ul>
+
+            <h5 style="margin-top:14px;">How does Ring AIR predict ovulation?</h5>
+            <ol>
+                <li><strong>Cycle calendar analysis:</strong> Estimates ovulation 12-14 days before your next period based on history.</li>
+                <li><strong>Biomarker tracking:</strong> Temperature rise post-ovulation, RHR increase before ovulation, HRV dip from hormonal stress.</li>
+                <li><strong>Cross-validation:</strong> External hormone tests (LH, estrogen, FSH, progesterone) can refine predictions.</li>
+            </ol>
+
+            <h5 style="margin-top:14px;">Can it prevent pregnancy?</h5>
+            <p><strong>No.</strong> It is not birth control. Ovulation timing can shift and sperm can survive up to five days. Use medically approved contraception to avoid pregnancy.</p>
+
+            <h5 style="margin-top:14px;">What if I have an IUD?</h5>
+            <p>You can still log history. Biomarkers (HRV, RHR, temperature) are tracked; recovery and sleep insights still apply even without ovulation.</p>
+
+            <h5 style="margin-top:14px;">Biomarker trends by phase</h5>
+            <p><strong>Menstrual (Days 1-5):</strong> HRV drops, RHR rises, temp may fall, sleep can dip. Focus on recovery and gentle movement.</p>
+            <p><strong>Follicular (Days 6-14):</strong> HRV improves, sleep quality rises, estrogen lifts energy. Good for strength, HIIT, and focus.</p>
+            <p><strong>Ovulatory (Days 15-17):</strong> Estrogen/testosterone peak; temp rises slightly; HRV may fluctuate. Schedule hardest workouts; support recovery.</p>
+            <p><strong>Luteal (Days 18-28):</strong> Progesterone raises temp, lowers HRV, increases RHR; sleep may worsen. Emphasize lower intensity, sleep hygiene, and stress relief.</p>
+
+            <h5 style="margin-top:14px;">How to update cycle details</h5>
+            <ol>
+                <li>Open Ultrahuman app.</li>
+                <li>Go to PowerPlugs &rarr; Cycle Tracking.</li>
+                <li>Enter or edit period start/end dates, cycle length, and symptoms.</li>
+                <li>Save and sync.</li>
+            </ol>
+            <p>Keeping details current improves recovery, HRV, sleep, and training recommendations.</p>
+
+            <h5 style="margin-top:14px;">Need help interpreting data?</h5>
+            <ol>
+                <li>Open Ultrahuman app.</li>
+                <li>Tap Profile.</li>
+                <li>Select Product Specialist &rarr; How to Interpret Data.</li>
+                <li>Chat with an ACSM-certified coach.</li>
+            </ol>
+
+            <h5 style="margin-top:14px;">Phase-specific tips</h5>
+            <p><strong>Menstrual:</strong> Restorative workouts; prioritize sleep and stress reduction.</p>
+            <p><strong>Follicular:</strong> Lean into strength/HIIT; capitalize on higher energy.</p>
+            <p><strong>Ovulatory:</strong> Schedule peak efforts; hydrate and manage inflammation.</p>
+            <p><strong>Luteal:</strong> Shift to mobility/yoga/walking; tighten sleep hygiene (limit blue light, caffeine, late meals); use 4-7-8 breathing for stress.</p>
+
+            <p>Read more: <a href="https://blog.ultrahuman.com/blog/four-phases-of-the-menstrual-cycle/" target="_blank" rel="noopener noreferrer">Guide to the four phases of the menstrual cycle</a>.</p>
+        `,
+        'circadian-alignment': `
+            <h4>Circadian Alignment PowerPlug</h4>
+            <p>The Circadian Alignment PowerPlug helps you sync behavior with your internal clock. Your 24-hour circadian rhythm regulates sleep, alertness, hormones, body temperature, and metabolism. It is most sensitive to light/dark but also responds to movement, food timing, and sleep timing. When aligned, your body anticipates sleep/wake, digestion, and performance; when disrupted (shift work, late screens, travel), you may see poor sleep, mood swings, fatigue, glucose instability, or longer-term metabolic effects.</p>
+
+            <h5>How the PowerPlug works</h5>
+            <p>Ring AIR identifies your core temperature minimum (the nightly low point), applies a rolling seven-day average, and excludes the first and last hour of sleep to reduce noise. This minima anchors your circadian clock and powers real-time guidance inside the app.</p>
+
+            <h5>Circadian phases in the app</h5>
+            <ul>
+                <li><strong>Minima Zone (30 minutes around your temperature minima):</strong> Deep rest; keep it dark and still to protect melatonin and recovery.</li>
+                <li><strong>Phase Advance (first ~4 hours after minima):</strong> Light and movement here shift your clock earlier; morning sunlight, a short walk, or light movement boost alertness and support earlier sleep onset.</li>
+                <li><strong>Circadian Dead Zone (between advance and delay):</strong> Mostly midday; light or activity have minimal shifting power. Caffeine or exercise here are neutral for clock timing.</li>
+                <li><strong>Phase Delay (4-8 hours before minima):</strong> Evening/early night; bright light, screens, heavy meals, or late workouts push your clock later. Dim lights, avoid stimulants, and wind down.</li>
+            </ul>
+
+            <h5>Why Ultrahuman tracks it</h5>
+            <p>Ultrahuman uses circadian markers (temperature patterns, HR/HRV trends, activity timing) to show how aligned your behaviors are and to guide better sleep, recovery, and metabolic stability.</p>
+
+            <h5>Phase Response Curve (PRC)</h5>
+            <p>The PRC maps how light and movement at different times shift your rhythm earlier or later. The PowerPlug uses your minima and PRC to time nudges: get light and activity when your body benefits, wind down when sensitivity is highest.</p>
+
+            <h5>Stress Rhythm Score</h5>
+            <p>Your circadian timing also feeds the Stress Rhythm Score, a stress measure that accounts for your body clock. <a href="https://www.notion.so/Stress-Rhythm-Score-explained-217755317a9180eb9c83e7e182132160?pvs=21" target="_blank" rel="noopener noreferrer">Read the Stress Rhythm Score guide</a>.</p>
+
+            <h5>Temperature minima: your anchor</h5>
+            <ul>
+                <li><strong>What it is:</strong> The lowest point of your core body temperature during sleep.</li>
+                <li><strong>Why it matters:</strong> Acts as the reset marker for your circadian clock.</li>
+                <li><strong>Phase Advance Window:</strong> Begins ~4 hours after the minima.</li>
+                <li><strong>Phase Delay Window:</strong> Occurs before the minima when you are most sensitive to light/stimulants.</li>
+                <li><strong>Circadian Dead Zone:</strong> Between these windows; minimal responsiveness.</li>
+            </ul>
+
+            <h5>Phase advance window</h5>
+            <p>A receptive window (~4 hours after minima) where light and movement shift your clock earlier, supporting earlier sleep/wake and better daytime energy. Example: morning sunlight soon after waking reinforces alertness and an earlier cycle.</p>
+
+            <h5>Circadian dead zone</h5>
+            <p>Typically midday between advance and delay; light/activity have limited clock impact. Neutral for caffeine or exercise relative to circadian timing.</p>
+
+            <h5>Phase delay window</h5>
+            <p>Occurs before your minima (evening/early night). Light, screens, stimulants, or late intense workouts here delay your clock and suppress melatonin; dim lights and avoid stimulants to protect sleep onset and recovery.</p>
+
+            <h5>Phase advance activity</h5>
+            <p>Actions that shift your clock earlier when done in the advance window: bright morning light, first ~1700 steps/short walk, and a well-timed breakfast. Helps improve sleep consistency, jet lag adaptation, shift-work adjustments, and morning alertness. Use the Circadian Rhythm tab to align steps/light with the advance window.</p>
+
+            <h5>Why your advance window moves</h5>
+            <ol>
+                <li><strong>Sleep timing/quality:</strong> Later or fragmented sleep shifts minima later.</li>
+                <li><strong>Evening light:</strong> Bright light/screens delay minima; use dim light or blue-light blockers in phase delay.</li>
+                <li><strong>Exercise timing:</strong> Late workouts can delay minima; morning sessions can stabilize/advance it.</li>
+                <li><strong>Stimulants/meals:</strong> Late caffeine, heavy meals, or alcohol delay cooling; earlier dinners help stability.</li>
+                <li><strong>Travel/time zones:</strong> Minima shifts until you adapt to the new zone.</li>
+            </ol>
+
+            <h5>Key factors that shift your rhythm</h5>
+            <p>Light (especially natural sunlight) is the strongest cue. Exercise timing, meal timing, naps, travel, illness, and genetics also influence your rhythm. Regular morning light and evening darkness keep it stable and adaptive.</p>
+        `
+    };
+
+    bubbles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-target');
+            bubbles.forEach(b => {
+                b.classList.toggle('active', b === btn);
+                b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+            });
+            panes.forEach(pane => {
+                const isTarget = pane.id === targetId;
+                pane.classList.toggle('active', isTarget);
+                pane.hidden = !isTarget;
+            });
+        });
+    });
+
+    const showAllBubbles = () => {
+        detailButtons.forEach(b => b.classList.remove('active'));
+        detail.hidden = true;
+        detail.innerHTML = '';
+        if (listWrap) listWrap.hidden = false;
+    };
+
+    detailButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const key = btn.getAttribute('data-key');
+            detailButtons.forEach(b => b.classList.toggle('active', b === btn));
+            if (detailCopy[key]) {
+                detail.innerHTML = `
+                    <button type="button" class="pp-back" aria-label="Back to PowerPlugs">← Back</button>
+                    ${detailCopy[key]}
+                `;
+                detail.hidden = false;
+                if (listWrap) listWrap.hidden = true;
+                if (explorePane) explorePane.classList.add('pp-detail-open');
+            } else {
+                showAllBubbles();
+            }
+        });
+    });
+
+    container.addEventListener('click', (e) => {
+        const backBtn = e.target.closest('.pp-back');
+        if (backBtn) {
+            showAllBubbles();
+            if (explorePane) explorePane.classList.remove('pp-detail-open');
+        }
+    });
+}
 
 

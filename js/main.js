@@ -1,5 +1,6 @@
 // Main JavaScript for CodeX
 document.addEventListener('DOMContentLoaded', function() {
+    overridePowerplugContent();
     initializeNavigation();
     initializeMobileMenu();
     initializeSearchToggle();
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initializeTabs();
+    initializeCircadianModule();
 });
 
 function initializeNavigation() {
@@ -288,6 +290,26 @@ function initializeThemeToggle() {
     });
 }
 
+// Blood Vision sub-tabs (Overview / Troubleshooting)
+document.addEventListener('DOMContentLoaded', () => {
+    const pillButtons = document.querySelectorAll('.bv-pill-button');
+    pillButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const parent = btn.closest('.bv-pill-tabs');
+            if (parent) {
+                parent.querySelectorAll('.bv-pill-button').forEach(b => b.classList.remove('active'));
+            }
+            btn.classList.add('active');
+
+            const targetId = btn.getAttribute('data-target');
+            const targetEl = targetId ? document.getElementById(targetId) : null;
+            if (targetEl) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+});
+
 function initializeHeroButtons() {
     const heroButtons = document.querySelectorAll('.hero-button[data-target]');
 
@@ -300,6 +322,128 @@ function initializeHeroButtons() {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 target.classList.add('hero-target-active');
                 setTimeout(() => target.classList.remove('hero-target-active'), 1200);
+            }
+        });
+    });
+}
+
+function overridePowerplugContent() {
+    if (!window.contentData || !window.contentData['powerplug']) return;
+
+    window.contentData['powerplug'].content = `
+            <h3>What are PowerPlugs?</h3>
+            <p>PowerPlugs are Ultrahuman’s next-generation platform of modular health features built on top of your Ring AIR data. They let you personalize your Ultrahuman experience by unlocking specific insights, capabilities, and tools that match your health goals.</p>
+            <p>Think of them as <em>intelligent extensions</em> of your Ring AIR – optional PowerUps designed to go deeper into areas like sleep, recovery, women’s health, heart health, or daily rhythm.</p>
+            <p>Each PowerPlug analyzes your existing physiological signals through advanced algorithms and presents science-backed insights without altering your core Ultrahuman experience. Whether it’s understanding your Vitamin D rhythm, tracking your ovulation phase, or detecting early signs of atrial fibrillation (AFib), PowerPlugs give you the freedom to choose what matters most to you.</p>
+
+            <h3>How do I activate PowerPlugs?</h3>
+            <ol>
+                <li>Open the Ultrahuman app and go to your Ring AIR homepage.</li>
+                <li>Tap <strong>"Activate more PowerPlugs."</strong></li>
+                <li>Browse through the available options.</li>
+                <li>Select the PowerPlug you’d like to add and tap <strong>"Get."</strong></li>
+            </ol>
+            <p>If it’s a premium PowerPlug, you’ll be redirected to your app store to complete your purchase. Once installed, it will appear in your active PowerPlugs list and start working seamlessly with your existing data.</p>
+
+            <h3>Why are some PowerPlugs paid?</h3>
+            <p>Some PowerPlugs require deeper computational models, medical-grade validation, or licensed algorithms that go beyond standard wellness analytics. These involve clinical testing, regulatory compliance, and data infrastructure that ensure medical accuracy and reliability.</p>
+            <p>By offering both <strong>free and premium</strong> PowerPlugs, Ultrahuman ensures everyone has access to essential wellness insights while providing more specialized, research-backed tools for those who want advanced health analysis. Premium PowerPlugs are optional add-ons — they enhance your experience but never restrict access to Ultrahuman’s core features like sleep, recovery, stress, and activity tracking.</p>
+
+            <h3>What are the PowerPlugs available today?</h3>
+            <h4>Free PowerPlugs</h4>
+            <ul>
+                <li><strong>Vitamin D PowerPlug</strong> – Understand how sunlight exposure impacts your circadian rhythm and vitamin D synthesis.</li>
+                <li><strong>Caffeine Window</strong> – Identify when caffeine helps versus when it disrupts your recovery and sleep.</li>
+                <li><strong>Circadian Alignment</strong> – Optimize activity and rest times based on your biological rhythm.</li>
+                <li><strong>Cycle Tracking</strong> – Predict and understand your cycle phases using multi-biomarker analysis (temperature, HRV, RHR).</li>
+                <li><strong>Pregnancy Insights</strong> – Track key changes and trends through different stages of pregnancy.</li>
+            </ul>
+
+            <h4>Premium PowerPlugs</h4>
+            <ul>
+                <li><strong>Cycle &amp; Ovulation Pro</strong> – Built using clinically validated OvuSense technology and 15 years of research; delivers over 90% accuracy for ovulation confirmation and supports diverse cycle types including PCOS and endometriosis.</li>
+                <li><strong>AFib Detection</strong> – Smart ring feature capable of detecting atrial fibrillation using medical-grade PPG sensing and validated algorithms.</li>
+                <li><strong>Cardio Adaptability</strong> – Advanced cardiovascular insights measuring how effectively your heart adapts to stress and recovery patterns.</li>
+            </ul>
+
+            <h3>Where is AFib Detection available?</h3>
+            <p>AFib Detection is currently available in <strong>Europe, the UK, Turkey, and Switzerland</strong>, with expansion plans for the <strong>USA, UAE, and India</strong> underway. Regional availability depends on regulatory clearance in each geography to ensure medically validated and compliant reports.</p>
+
+            <h3>Can I change my PowerPlug subscription plan?</h3>
+            <ol>
+                <li>Go to the <strong>PowerPlugs</strong> section in the app.</li>
+                <li>Tap the <strong>settings icon</strong> next to any active PowerPlug.</li>
+                <li>Switch between <strong>monthly</strong> and <strong>annual</strong> plans, restore purchases, or update payment options.</li>
+            </ol>
+            <p>Your data and insights remain securely stored and continue seamlessly when you modify or renew a subscription.</p>
+        `;
+
+    if (typeof window.loadContent === 'function') {
+        loadContent('powerplug');
+    }
+}
+
+function initializeCircadianModule() {
+    const module = document.getElementById('circadian-module');
+    if (!module) return;
+
+    const openers = document.querySelectorAll('[data-open-circadian]');
+    const closers = module.querySelectorAll('[data-close-circadian]');
+    const tabs = module.querySelectorAll('.circadian-tab');
+    const panels = module.querySelectorAll('.circadian-panel');
+
+    const activateTab = (tabId) => {
+        tabs.forEach(tab => {
+            const isActive = tab.getAttribute('data-tab') === tabId;
+            tab.classList.toggle('active', isActive);
+            tab.setAttribute('aria-selected', String(isActive));
+        });
+
+        panels.forEach(panel => {
+            const isMatch = panel.id === `${tabId}-panel`;
+            panel.classList.toggle('active', isMatch);
+            if (isMatch) {
+                panel.removeAttribute('hidden');
+            } else {
+                panel.setAttribute('hidden', 'hidden');
+            }
+        });
+    };
+
+    const showModule = () => {
+        module.classList.add('active');
+        module.removeAttribute('hidden');
+        module.setAttribute('aria-hidden', 'false');
+        activateTab('circadian-overview');
+        module.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    const hideModule = () => {
+        module.classList.remove('active');
+        module.setAttribute('hidden', 'hidden');
+        module.setAttribute('aria-hidden', 'true');
+
+        // Return focus and view back to the PowerPlug list
+        const anchor = document.querySelector('[data-open-circadian]');
+        if (anchor) {
+            anchor.focus({ preventScroll: true });
+            anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    };
+
+    openers.forEach(btn => {
+        btn.addEventListener('click', showModule);
+    });
+
+    closers.forEach(btn => {
+        btn.addEventListener('click', hideModule);
+    });
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            if (tabId) {
+                activateTab(tabId);
             }
         });
     });

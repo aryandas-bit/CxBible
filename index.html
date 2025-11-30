@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CX Codex - Ultrahuman Customer Support Documentation</title>
+    <title>Codex - Ultrahuman Customer Support Documentation</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -14,16 +14,7 @@
 <body>
     <header class="header">
         <div class="header-content">
-            <h1 class="header-title" id="headerTitle">
-                <span class="letter">C</span>
-                <span class="letter">X</span>
-                <span class="letter">&nbsp;</span>
-                <span class="letter">C</span>
-                <span class="letter">o</span>
-                <span class="letter">d</span>
-                <span class="letter">e</span>
-                <span class="letter">x</span>
-            </h1>
+            <h1 class="header-title" id="headerTitle">CODEX</h1>
             <p class="header-subtitle">Ultrahuman Customer Support Documentation</p>
             <div class="search-container">
                 <div class="search-widget">
@@ -83,7 +74,7 @@
     <main class="main-content">
         <div class="content-container">
             <section id="overview" class="section active">
-                <h2>Welcome to CX Codex</h2>
+                <h2>Welcome to Codex</h2>
                 <p>This comprehensive documentation covers all aspects of Ultrahuman's customer support operations, including product FAQs, troubleshooting guides, and standard operating procedures.</p>
 
                 <div class="overview-grid">
@@ -129,16 +120,9 @@
                         <button type="button" class="tab-button" data-tab="uae" role="tab" aria-controls="uae-tab" aria-selected="false">UAE</button>
                     </div>
                     <div class="tab-content active" id="india-tab">
-                        <div class="blood-vision-hero">
-                            <button type="button" class="hero-button" data-target="india-overview" aria-controls="india-overview">
-                                <span class="hero-country">India</span>
-                                <span class="hero-title">Overview</span>
-                                <span class="hero-note">Blood Vision General FAQ</span>
-                            </button>
-                            <button type="button" class="hero-button hero-button--meta" data-target="india-ts" aria-controls="india-ts">
-                                <span class="hero-tag">TS</span>
-                                <span class="hero-note">Troubleshooting</span>
-                            </button>
+                        <div class="bv-pill-tabs" role="tablist" aria-label="Blood Vision India">
+                            <button type="button" class="bv-pill-button active" data-target="india-overview">Overview</button>
+                            <button type="button" class="bv-pill-button" data-target="india-ts">Troubleshooting</button>
                         </div>
                         <div class="blood-vision-body">
                         <h3 id="india-overview">Blood Vision General FAQ (India)</h3>
@@ -170,16 +154,9 @@
                     </div>
 
                     <div class="tab-content" id="usa-tab" hidden>
-                        <div class="blood-vision-hero">
-                            <button type="button" class="hero-button" data-target="usa-overview" aria-controls="usa-overview">
-                                <span class="hero-country">USA</span>
-                                <span class="hero-title">Overview</span>
-                                <span class="hero-note">CX Playbooks &amp; SOPs</span>
-                            </button>
-                            <button type="button" class="hero-button hero-button--meta" data-target="usa-ts" aria-controls="usa-ts">
-                                <span class="hero-tag">TS</span>
-                                <span class="hero-note">Troubleshooting</span>
-                            </button>
+                        <div class="bv-pill-tabs" role="tablist" aria-label="Blood Vision USA">
+                            <button type="button" class="bv-pill-button active" data-target="usa-overview">Overview</button>
+                            <button type="button" class="bv-pill-button" data-target="usa-ts">Troubleshooting</button>
                         </div>
                         <div class="blood-vision-body">
                                             <h3 id="usa-overview">BV USA - SOPs for CX team</h3>
@@ -414,20 +391,13 @@
                     </div>
 
                     <div class="tab-content" id="uae-tab" hidden>
-                        <div class="blood-vision-hero">
-                            <button type="button" class="hero-button" data-target="uae-overview" aria-controls="uae-overview">
-                                <span class="hero-country">UAE</span>
-                                <span class="hero-title">Overview</span>
-                                <span class="hero-note">Limited Launch Playbook</span>
-                            </button>
-                            <button type="button" class="hero-button hero-button--meta" data-target="uae-ts" aria-controls="uae-ts">
-                                <span class="hero-tag">TS</span>
-                                <span class="hero-note">Troubleshooting</span>
-                            </button>
+                        <div class="bv-pill-tabs" role="tablist" aria-label="Blood Vision UAE">
+                            <button type="button" class="bv-pill-button active" data-target="uae-overview">Overview</button>
+                            <button type="button" class="bv-pill-button" data-target="uae-ts">Troubleshooting</button>
                         </div>
-                        <div class="blood-vision-body">
-                                                    <h3 id="uae-overview">Blood Vision Pilot (UAE)</h3>
-                            <h4>Availability</h4>
+                          <div class="blood-vision-body">
+                                                      <h3 id="uae-overview">Blood Vision Pilot (UAE)</h3>
+                              <h4>Availability</h4>
                             <p>The UAE program is currently live with a controlled beta across Dubai, Abu Dhabi, and Sharjah. Collections are executed through our Al-Borg Diagnostics partnership.</p>
                             <p>Slots are surfaced in the Ultrahuman app within the Vision tab. If a user cannot see slots, capture their PIN and escalate to the BV ops group for manual scheduling.</p>
 
@@ -590,7 +560,7 @@
 
                     <h4>Available PowerPlugs</h4>
                     <ul>
-                        <li>Circadian Rhythm</li>
+                        <li><button type="button" class="powerplug-link" data-open-circadian="true">Circadian Rhythm</button></li>
                         <li>Pregnancy Insights</li>
                         <li>Cycle Tracking</li>
                         <li>Cycle and Ovulation Pro</li>
@@ -604,6 +574,44 @@
                         <li>TeslaSync</li>
                         <li>Screen time</li>
                     </ul>
+
+                    <div id="circadian-module" class="circadian-module" aria-label="Circadian Rhythm PowerPlug">
+                        <div class="circadian-header">
+                            <div class="circadian-title">
+                                <p class="circadian-kicker">PowerPlug</p>
+                                <h3>Circadian Rhythm</h3>
+                                <p class="circadian-subhead">Light, sleep, and activity guidance tuned to the body’s natural 24-hour cycle.</p>
+                            </div>
+                            <button type="button" class="circadian-back" data-close-circadian="true" aria-label="Back to PowerPlug list">Back</button>
+                        </div>
+
+                        <div class="circadian-tabs" role="tablist" aria-label="Circadian Rhythm tabs">
+                            <button type="button" class="circadian-tab active" data-tab="circadian-overview" role="tab" aria-controls="circadian-overview-panel" aria-selected="true">Overview</button>
+                            <button type="button" class="circadian-tab" data-tab="circadian-faq" role="tab" aria-controls="circadian-faq-panel" aria-selected="false">FAQ</button>
+                        </div>
+
+                        <div id="circadian-overview-panel" class="circadian-panel active" role="tabpanel" aria-labelledby="circadian-overview">
+                            <h4 id="circadian-overview">Understanding Your Day</h4>
+                            <p>The Circadian Rhythm PowerPlug analyzes sleep, activity, and light exposure to understand each member’s natural 24-hour cycle.</p>
+                            <p>It delivers step-by-step, time-of-day cues—when to move, dim lights, or seek daylight—to align the body clock for better sleep quality, sharper focus, and steadier energy.</p>
+                            <ul>
+                                <li>Personalized light and movement guidance across your day</li>
+                                <li>Daily timing nudges (focus, recharge, wind-down windows)</li>
+                                <li>Sleep hygiene tips tailored to your rhythm</li>
+                            </ul>
+                            <button type="button" class="circadian-cta">Activate PowerPlug</button>
+                        </div>
+
+                        <div id="circadian-faq-panel" class="circadian-panel" role="tabpanel" aria-labelledby="circadian-faq" hidden>
+                            <h4 id="circadian-faq">FAQ</h4>
+                            <ul class="circadian-faq-list">
+                                <li><strong>How does it decide my rhythm?</strong> It looks at sleep timing, consistency, activity blocks, and light exposure patterns to map your daily clock.</li>
+                                <li><strong>What if my schedule shifts?</strong> The recommendations re-center after a few days of new sleep/light patterns and adapt to travel or shift work.</li>
+                                <li><strong>Do I need extra hardware?</strong> No—guidance is generated from your existing Ultrahuman data streams.</li>
+                                <li><strong>How fast will I see changes?</strong> Most members notice more stable energy and easier sleep onset within 5–7 days of following the cues.</li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <h4>Free vs Premium</h4>
                     <ul>
@@ -1126,7 +1134,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 Ultrahuman CX Codex. Internal Documentation.</p>
+            <p>&copy; 2024 Ultrahuman Codex. Internal Documentation.</p>
             <div class="footer-glass-logo" aria-hidden="true">
                 <span class="glass-text">ULTRAHUMAN</span>
                 <span class="glass-blur"></span>
