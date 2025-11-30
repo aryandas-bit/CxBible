@@ -129,7 +129,17 @@ class CodeXSearch {
             .sort((a, b) => b.score - a.score)
             .slice(0, 50); // Limit to top 50 results
 
-        this.displaySearchResults();
+        if (this.searchResults.length === 0) {
+            this.showNoResults();
+            return;
+        }
+
+        // Redirect to the best-matching section immediately
+        const topResult = this.searchResults[0];
+        this.navigateToSection(topResult.sectionId);
+
+        // Clear any prior search UI without changing the active section
+        this.clearSearchResults(true);
     }
 
     displaySearchResults() {
@@ -235,17 +245,19 @@ class CodeXSearch {
         overviewGrid.parentNode.insertBefore(resultsContainer, overviewGrid.nextSibling);
     }
 
-    clearSearchResults() {
+    clearSearchResults(keepSectionActive = false) {
         const existingResults = document.querySelector('.search-results');
         if (existingResults) {
             existingResults.remove();
         }
 
-        // Show overview section
-        document.querySelectorAll('.section').forEach(section => {
-            section.classList.remove('active');
-        });
-        document.getElementById('overview').classList.add('active');
+        if (!keepSectionActive) {
+            // Show overview section
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('overview').classList.add('active');
+        }
     }
 }
 
