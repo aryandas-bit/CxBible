@@ -1,61 +1,196 @@
-// CodeX Content Data
+﻿// CodeX Content Data
 const contentData = {
     'blood-vision': {
         title: 'Blood Vision Documentation',
         content: `
-            <h3>Blood Vision General FAQ</h3>
-            <h4>What is Blood Vision?</h4>
-            <p>Our newest product, Blood Vision - powered by UltraTrace™ technology allows seamless correlation to the changes in your sleep, resting HR, HRV, and movement trends with pertinent markers in the blood. Decades of meticulous research underpin this categorisation.</p>
+            <div class="bv-subtabs" role="tablist" aria-label="Blood Vision Overview and SOPs">
+                <button type="button" class="bv-subtab active" data-target="bv-overview" aria-selected="true">Overview</button>
+                <button type="button" class="bv-subtab" data-target="bv-region" aria-selected="false">Region Based SOPs</button>
+                <button type="button" class="bv-subtab" data-target="bv-refunds" aria-selected="false">Refunds</button>
+            </div>
 
-            <h4>What you need to know about booking a Blood Vision Test</h4>
-            <p>You can book your Blood Vision Test via the Ultrahuman app. You can also book a test for your friends and family here. All available test packages are visible in the app's vision tab.</p>
+            <div class="bv-pane active" id="bv-overview">
+                <h3>Blood Vision Overview</h3>
+                <p>Blood Vision by Ultrahuman introduces a new approach to preventive blood testing through its UltraTraceâ„¢ technology. This advancement is not just another blood test; it marks a significant step forward in health and wellness monitoring.</p>
+                <p>UltraTraceâ„¢ technology innovatively links changes in sleep patterns, resting heart rate, heart rate variability, and physical activity with key blood markers, based on decades of comprehensive research.</p>
+                <p>For instance, UltraTraceâ„¢ can analyze the impact of improved sleep quality on a blood marker such as LDL, giving users a probability score. This functionality provides a clearer understanding of how lifestyle habits directly influence blood markers.</p>
+                <p>By enabling users to track their health markers over time, Blood Vision provides personalized insights through advanced algorithms. This approach prioritizes longevity and proactive well-being, marking a departure from traditional disease-centric metrics and emphasizing preventive healthcare.</p>
 
-            <h4>Is my location serviceable?</h4>
-            <p>We are live in select cities in India - Bengaluru, Gurgaon, Delhi, Hyderabad, Mumbai & Noida.</p>
+                <div class="bv-visuals" aria-label="Blood Vision visuals">
+                    <figure>
+                        <img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXf8MOhmfiroJskah-VSe_r9W6drNayfVUO8e1q8PH4MJBgUeBCUijj-8C7HHbMZ-kpsnSt-riMvRvh_HjN9MAEe1xT7jyTIi9QEtbZ2e8PxTreuM08B2RppdAtMv0Da6Xx2XIOcYg?key=ubek2f9gjtdQGabUL4ElvQ" alt="Blood Vision dashboard and cholesterol insights on mobile" loading="lazy">
+                        <figcaption>Blood Vision dashboards: biomarker ranges, correlations, lifestyle markers, and supplement guidance.</figcaption>
+                    </figure>
+                </div>
 
-            <h4>What are the different tests available?</h4>
-            <p>We have 14 tests available: Peak Performance, Foundational, Advanced, Hormone Health, Organ Health, Diabetes Risk, Heart Health, Cognition Health, Inflammation Status, Recovery Panel, Fatigue, Hair Health, Sleep Status, Menstrual Health (female only)</p>
+                <h3>How secure is my Blood Vision data?</h3>
+                <h4>Your Data, Your Rules</h4>
+                <p><strong>1. We never sell your data â€” period.</strong><br>
+                Your trust means everything to us. Thatâ€™s why we will never sell your personal information, including blood or genetic data, to third parties for advertising or commercial gain.</p>
+                <p><strong>2. HIPAA-compliant protection</strong><br>
+                Although Ultrahuman operates globally, our blood testing service is run through a US-based entity that complies with <strong>HIPAA</strong> â€” the gold standard for protecting your health data in the United States.</p>
+                <p><strong>3. Youâ€™re in control</strong><br>
+                Your data belongs to you. You can access it, download it, or ask us to delete it at any time. We believe in full transparency and complete user control.</p>
 
-            <h4>Who comes to collect the samples?</h4>
-            <p>We have exclusively tied up with Orange Health Labs, our partners in fulfilling the Blood Vision Tests. Their collection partners enable sample collections to be carried out from the comfort of your home.</p>
+                <h3>Lab quality & transparency</h3>
+                <p>When it comes to blood testing, trust starts with transparency. At Ultrahuman, we donâ€™t just focus on cutting-edge insights â€” we ensure that the lab work behind those insights meets the highest standards of quality, reliability, and clinical rigor.</p>
 
-            <h3>Blood Vision USA FAQ</h3>
-            <h4>What is Blood Vision?</h4>
-            <p>Blood Vision is our newest product, powered by UltraTrace™ technology. It helps you understand the connections between your lifestyle habits and important markers in your blood.</p>
+                <h4>Trusted Lab Partners, Globally Recognized</h4>
+                <ul>
+                    <li><strong>In the United States</strong>, all tests are processed by <strong>Quest Diagnostics</strong>, one of the largest and most respected diagnostic labs in the country. Quest operates under <strong>CLIA certification</strong> and adheres to <strong>CAP</strong> standards, ensuring strict quality control and reliable turnaround times. Whether you choose at-home collection or visit a local Quest lab, you can expect clinical-grade accuracy with end-to-end tracking.</li>
+                    <li><strong>In India</strong>, testing is handled by <strong>Tata1MG</strong>, a NABL-accredited lab network with a reputation for speed, reliability, and precision. Samples are collected and processed under stringent cold-chain logistics and laboratory best practices. Every phlebotomist is trained, certified, and monitored to ensure safe, sterile, and seamless collection â€” often within hours of booking.</li>
+                </ul>
 
-            <h4>Do I need a doctor's prescription to use Blood Vision?</h4>
-            <p>No, you do not need your own doctor's prescription. Our service includes physician authorization.</p>
+                <h4>Why We Chose These Labs</h4>
+                <ul>
+                    <li><strong>Accreditation &amp; compliance:</strong> Only labs that meet or exceed national regulatory standards are considered.</li>
+                    <li><strong>Sample integrity &amp; logistics:</strong> From vein to vial to lab bench â€” every step is monitored.</li>
+                    <li><strong>Turnaround time:</strong> Fast partial reporting, with final results delivered promptly â€” without cutting corners.</li>
+                    <li><strong>Tech stack integration:</strong> Smooth API-based reporting feeds directly into the Ultrahuman app.</li>
+                    <li><strong>Scalability:</strong> Built to support single tests or longitudinal biomarker tracking.</li>
+                </ul>
 
-            <h4>How do I order a Blood Vision test?</h4>
-            <p>You can purchase a Blood Vision test through the Ultrahuman app or the Blood Vision website. Upon purchase, an order is generated and routed to our B2B partner, Vital/Junction.</p>
+                <h4>Zero Tolerance for Compromise</h4>
+                <p>We donâ€™t operate our own lab â€” and thatâ€™s intentional. We integrate best-in-class lab infrastructure with our proprietary UltraTraceâ„¢ algorithm and personalized insights. This separation ensures that each part of the process â€” from collection to analysis to interpretation â€” is optimized by experts. If something falls short (missed sample, delayed report, or unprofessional experience), we take ownership and resolve it directly with the lab. We maintain strict SLAs and continually monitor performance.</p>
 
-            <h4>Is Blood Vision available in my location?</h4>
-            <p>Blood Vision aims to cover all zip codes in the US through its lab partners (Quest Diagnostics, Labcorp) and mobile phlebotomy providers.</p>
+                <h4>Always Transparent, Always Accountable</h4>
+                <p>You can view full details of where your test is processed â€” and even the lab ID and timestamp â€” inside the Ultrahuman app. Your data is fully protected: in the US, operations are <strong>HIPAA-compliant</strong>. In India, we follow <strong>ISO and NABL protocols</strong>. Across all regions, we never sell or share your data without explicit consent.</p>
 
-            <h3>Blood Vision USA SOPs</h3>
-            <h4>Pre-Test Scenarios</h4>
-            <h5>Phlebotomist Not Showing Up (No-Show)</h5>
-            <p>Action: Empathize & Apologize, Gather Details, Immediate Escalation to Vital operations, Prioritize Reschedule, Consider Service Recovery.</p>
+                <h3>Why blood markers matter</h3>
+                <p>Blood markers, or biomarkers, are essential indicators in your blood that offer insights into your health. They come in various forms, such as cells, enzymes, hormones, or molecules, each shedding light on your health status, signaling potential diseases, or tracking the effectiveness of treatments. Doctors rely on them much like blood pressure or cholesterol checks to spot issues before symptoms appear.</p>
+                <p>Our bodies are a complex network of systems, including the cardiovascular, metabolic, and immune systems. During a health check-up, doctors assess markers such as heart rate, blood pressure, cholesterol, blood sugar, and weight to identify risk factors for serious conditions and enable early action.</p>
 
-            <h5>Late Arrival</h5>
-            <p>Action: Empathize & Apologize, Assess Severity (Minor vs Significant Delay), Service Recovery for significant delays.</p>
+                <h4>Warning signs</h4>
+                <p>Blood markers are critical early warning signs, alerting you to underlying issues before they escalate. They span proteins, lipids, cells, and small molecules, each providing insight into how your body is functioning. They help you understand your body, pinpoint areas for improvement, track progress, and identify issues that may hinder performance.</p>
 
-            <h5>Rescheduling (User-Initiated)</h5>
-            <p>Policy: >24 Hours: Free reschedule, <24 Hours: Full appointment fee charged.</p>
+                <ul>
+                    <li><strong>Identifying Health Issues:</strong> Many markers link directly to conditions (e.g., elevated troponin for heart damage; high ALT/AST for liver stress). Early detection lets you act before lasting damage.</li>
+                    <li><strong>Monitoring Progress:</strong> Tracking HDL (â€œgoodâ€) and LDL (â€œbadâ€) cholesterol is vital for cardiovascular risk; ongoing checks show how treatments or lifestyle changes are working.</li>
+                </ul>
 
-            <h4>During Test Scenarios</h4>
-            <h5>Excessive Bleeding</h5>
-            <p>Phlebotomist handles first aid, Blood Vision support calls 911 if severe.</p>
+                <h4>Why take a Blood Vision test</h4>
+                <p>Understanding markers like LDL is a forward-looking strategy for longevity. Early insights help you anticipate risks, adjust lifestyle and diet, and take proactive steps so your healthspan matches your lifespan.</p>
 
-            <h5>Anxiety Response</h5>
-            <p>Phlebotomist trained to handle vasovagal episodes, recommend lying down for future draws.</p>
+                <ul>
+                    <li><strong>Predicting Future Risks:</strong> Use markers to anticipate challenges and act early.</li>
+                    <li><strong>Understanding Organ Function:</strong> Markers such as TSH and thyroxine highlight thyroid function and metabolic impact, enabling timely interventions.</li>
+                </ul>
 
-            <h4>Post-Test Scenarios</h4>
-            <h5>Bruising at Draw Site</h5>
-            <p>Normal occurrence, advise warm compresses after 24 hours.</p>
+                <p>Keeping track of these markers over time paints a detailed picture of your health trends. Continuous insight empowers informed decisions on lifestyle, diet, and healthcare, keeping you proactive about your well-being.</p>
+            </div>
 
-            <h5>Report Delays</h5>
-            <p>Expected turnaround: Standard panels ~5-10 business days, comprehensive/specialized tests possibly 2+ weeks.</p>
+                        <div class="bv-pane" id="bv-region" hidden>
+                <div class="bv-region-bar">
+                    <button type="button" class="bv-region-back" data-region-back aria-label="Back">
+                        <span aria-hidden="true">←</span>
+                    </button>
+                    <div class="bv-pill-tabs bv-region-tabs" role="tablist" aria-label="Region Based SOPs">
+                    <button type="button" class="bv-pill-button active" data-region-target="bv-india" aria-selected="true">India</button>
+                    <button type="button" class="bv-pill-button" data-region-target="bv-uae" aria-selected="false">UAE</button>
+                    <button type="button" class="bv-pill-button" data-region-target="bv-usa" aria-selected="false">USA</button>
+                </div>
+                </div>
+
+                                <div class="bv-region-pane active" id="bv-india">
+                    <h3>Blood Vision (India)</h3>
+                    <p><strong>Support Level:</strong> L2</p>
+                    <p><strong>Applicable Regions:</strong> India</p>
+
+                    <h4>Related Tags</h4>
+                    <ul>
+                        <li><code>BV_Refund</code> - Refund cases</li>
+                        <li><code>BV_Report</code> - Report discrepancies in the PDF or app</li>
+                        <li><code>BV_Reschedule</code> - Reschedule requests</li>
+                        <li><code>BV_ETA</code> - ETA for reports</li>
+                        <li><code>BV_FAQ</code> - General Blood Vision questions</li>
+                        <li><code>BV_readings_deep_dive</code> - Queries about BV data</li>
+                    </ul>
+
+                    <h4>Overview</h4>
+                    <p>Our two partners in India are <strong>Orange Health</strong> and <strong>TATA 1MG</strong>.</p>
+                    <p>Identify orders on <a href="https://ops.ultrahuman.com/admin/blood_test_purchases" target="_blank" rel="noopener noreferrer">Blood Test Purchases</a> by searching for the purchase email ID. Flag any app/booking issues in <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a> and tag Gaurav Bhatia. For last-minute reschedules, highlight to an SME/Lead so we can coordinate with TATA 1MG on WhatsApp.</p>
+                    <ul>
+                        <li>Blood Vision now covers ~60 cities across ~2000 PIN codes. To check serviceability: Ultrahuman app &gt; Vision tab &gt; Book Now &gt; Add address.</li>
+                        <li>All BV orders are under Blood Test Purchases. Order IDs start with UHB or PO1.</li>
+                        <li>Partial reports (Orange Health) can be downloaded from their dashboard.</li>
+                        <li>When flagging on WhatsApp, share the request number (prefix MUM/BLR/DEL/etc. for Orange Health; city code for TATA 1MG).</li>
+                        <li>A PDF of the final report is emailed once all reports are ready.</li>
+                        <li>Flag ETA/reschedule cases on the WhatsApp group; tech issues on <a href="https://ultrahumanworkspace.slack.com/archives/C069YK98D16" target="_blank" rel="noopener noreferrer">#orangehealth-ultrahuman-support</a>.</li>
+                    </ul>
+
+                    <h4>Common Queries / Cases</h4>
+                    <ol>
+                        <li>
+                            <strong>Location not serviceable</strong><br>
+                            To check serviceability: Ultrahuman app &gt; Vision tab &gt; Book Now &gt; Add address.<br>
+                            <em>Tag:</em> <code>BV_FAQ</code>
+                        </li>
+                        <li>
+                            <strong>Missing/incomplete parameters</strong><br>
+                            Check the dashboard to verify completion time. Full markers expected within 21 days; escalate delays to <a href="https://ultrahumanworkspace.slack.com/archives/C069YK98D16" target="_blank" rel="noopener noreferrer">#orangehealth-ultrahuman-support</a> (tag Harsh R, Omprakash Sahu). TAT for 1MG: <a href="https://docs.google.com/spreadsheets/d/1Dq536hwMpig-QJ9bqUi8eo1cjTBMIkLTdtQcFPnKh30/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer">link</a>.<br>
+                            <em>Tag:</em> <code>BV_ETA</code>
+                        </li>
+                        <li>
+                            <strong>Reschedule request</strong><br>
+                            Guide: Ultrahuman app &gt; Profile &gt; Blood Vision &gt; Test &gt; Reschedule.<br>
+                            <em>Tag:</em> <code>BV_Reschedule</code>
+                        </li>
+                        <li>
+                            <strong>Pending markers in app but present in email PDF</strong><br>
+                            Flag in <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a>, tag tech-oncall.<br>
+                            <em>Tag:</em> <code>BV_Report</code>
+                        </li>
+                        <li>
+                            <strong>Parameter discrepancy (PDF vs app)</strong><br>
+                            Tag tech-oncall in <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a>.<br>
+                            <em>Tag:</em> <code>BV_Report</code>
+                        </li>
+                        <li>
+                            <strong>User wants insights on parameters</strong><br>
+                            Ask them to check with their doctors. For dietary suggestions connect them to Coaches or UH app &gt; Profile &gt; Connect with Performance coaches.<br>
+                            <em>Tag:</em> <code>BV_readings_deep_dive</code>
+                        </li>
+                        <li>
+                            <strong>Booked test from different ID than UH login</strong><br>
+                            Flag tech-oncall in <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a>.<br>
+                            <em>Tag:</em> <code>BV_Report</code>
+                        </li>
+                        <li>
+                            <strong>Payment captured but order not confirmed</strong><br>
+                            In Blood Test Purchases check Order Status and Accepted by Vendor. Verify payment (RazorPay). If payment is captured, flag <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a> to confirm refund/reinitiation. Reference: <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF/p1759516949970919" target="_blank" rel="noopener noreferrer">thread</a>.<br>
+                            <em>Tag:</em> <code>BV_Refund</code>
+                        </li>
+                    </ol>
+                </div>
+<div class="bv-region-pane" id="bv-uae" hidden>
+                    <h3>Blood Vision Pilot (UAE)</h3>
+                    <p>Controlled beta across Dubai, Abu Dhabi, Sharjah via Al-Borg Diagnostics.</p>
+                    <ul>
+                        <li>Slots via app (Vision tab). Capture PIN and escalate if slots missing.</li>
+                        <li>Packages mirror India Foundational/Advanced with localized ranges; hormone/menstrual coming soon.</li>
+                        <li>At-home collections; WhatsApp coordination ~12h before; bilingual consent available.</li>
+                        <li>Escalate address changes &lt;24h, clinic draw requests, re-collections to <code>#blood-vision-uae-ops</code> with order ID.</li>
+                        <li>Partial reports up to 48h; finals ~4 business days. Set expectations and log in CRM.</li>
+                    </ul>
+</div>
+
+<div class="bv-region-pane" id="bv-usa" hidden>
+    <h3>Blood Vision (USA)</h3>
+    <p><strong>Support Level:</strong> L2</p>
+    <p><strong>Applicable Regions:</strong> USA</p>
+    <p>USA SOP details will be added here.</p>
+</div>
+            </div>
+<div class="bv-pane" id="bv-refunds" hidden>
+                <h3>Blood Vision Refunds</h3>
+                <p>Use tag <code>BV_Refund</code> for payment captured but order not confirmed, or refund eligibility checks.</p>
+                <ol>
+                    <li>Open Blood Test Purchases; verify <strong>Order Status</strong> and <strong>Accepted by Vendor</strong>.</li>
+                    <li>Confirm payment capture (RazorPay) if status shows failed/pending.</li>
+                    <li>Flag <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a> with order ID and payment proof to confirm refund/reinitiation.</li>
+                </ol>
+                <p>Reference: <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF/p1759516949970919" target="_blank" rel="noopener noreferrer">refund thread</a>.</p>
+            </div>
         `
     },
     'm1-sensor': {
@@ -153,7 +288,7 @@ const contentData = {
             <h3>Knowledge Tree</h3>
             <p>tag (topic + issue)TopicIssueProtocol</p>
             <p>sensor_scan_not_working Sensor Sensor fails to successfully scan and enter the 60 min warm up stage This is a possible NFC not working situation. Three troubleshooting techniques we go for - a) Restarting the phone b) Uninstalling and reinstalling the app c) Logging out and logging in If the user is on an iPhone, simply asking them the iPhone works. If the NFC issue persists, request the user to check with family/friends for an NFC enabled phone. The start once they successfully activate their sensor worries there. Also, the sensor stores data for if there's anyone's phone that they could use once every 7 hours, that would do it. The user be logged in from multiple devices using the same details, so they can monitor from their phone make all the necessary inputs and just use the friends/family phone for scanning. Some quirky pointers - If the user is using a Samsung phone, ask them to off their case and use the back side of their phone scan the sensor. Sometimes the case's thickness the NFC from working properly. There seems to be some problem with OnePlus phone's NFC. Just confirm the phone model or proceeding with troubleshooting problems.</p>
-            <p>sensor_invalid_readings Sensor Sensor is reporting invalid readings (≤40 or ≥500) for over 6-8 hours. Readings less than 40 and higher than 500 considered invalid readings. Check this data on Stints place of the Ops Dash. If invalid readings persist for over 6 hours, replace. If the user is in the first 24 hours, we ask them for the first 24 hour window.</p>
+            <p>sensor_invalid_readings Sensor Sensor is reporting invalid readings (â‰¤40 or â‰¥500) for over 6-8 hours. Readings less than 40 and higher than 500 considered invalid readings. Check this data on Stints place of the Ops Dash. If invalid readings persist for over 6 hours, replace. If the user is in the first 24 hours, we ask them for the first 24 hour window.</p>
             <p>sensor_invalid_reading_midway Sensor Cyborgs graph isn't updating upon scanning/stuck at the same value Check 'CGM Stints/Lifetime Data' on the ops dashboard. Look for readings below 40 or above If it's Day 1 on the sensor, let the user know sensor takes 24 hours to calibrate. If it's past Day 1 and the sensor has been replaced invalid readings for over 6-8 hours, process a replacement.</p>
         `
     },
@@ -176,6 +311,25 @@ const contentData = {
                     loading="lazy">
                 </iframe>
             </div>
+        `
+    },
+    'ring-rare': {
+        title: 'Ring RARE Documentation',
+        content: `
+            <h3>Ring RARE Overview</h3>
+            <p>Quick reference for the Ring RARE hardware variant: setup, pairing, sizing, and day-one expectations.</p>
+            <ul>
+                <li>Box contents and wear guidance for RARE.</li>
+                <li>Pairing, firmware update, and Bluetooth sync checks.</li>
+                <li>Common troubleshooting: battery, sensor readings, data gaps.</li>
+            </ul>
+
+            <h4>Support Playbooks</h4>
+            <ol>
+                <li>Eligibility and replacement criteria for RARE units.</li>
+                <li>When to escalate to hardware QA or logistics.</li>
+                <li>Shipping, sizing swaps, and return steps.</li>
+            </ol>
         `
     },
     'powerplug': {
@@ -295,19 +449,19 @@ const contentData = {
             </table>
 
             <h4>MENSTRUAL PHASE:</h4>
-            <p>Core body temperature, RHR and RR ⬇</p>
-            <p>HR ⬇ compared to other phases</p>
-            <p>HRV, Skin perfusion ⬆</p>
+            <p>Core body temperature, RHR and RR â¬‡</p>
+            <p>HR â¬‡ compared to other phases</p>
+            <p>HRV, Skin perfusion â¬†</p>
 
             <h4>OVULATORY PHASE:</h4>
-            <p>Core body temperature starts to ⬆</p>
-            <p>HRV and HR further ⬆</p>
-            <p>RR and skin perfusion ⬇</p>
+            <p>Core body temperature starts to â¬†</p>
+            <p>HRV and HR further â¬†</p>
+            <p>RR and skin perfusion â¬‡</p>
             <p>RHR inconclusive</p>
 
             <h4>LUTEAL PHASE:</h4>
-            <p>Core body temperature, RHR, HR and RR ⬆</p>
-            <p>HRV ⬇</p>
+            <p>Core body temperature, RHR, HR and RR â¬†</p>
+            <p>HRV â¬‡</p>
 
             <h3>App Onboarding</h3>
             <p>Users are prompted to integrate and import their cycle data from a third party app (if any), input their primary goal for using this powerplug, period length, cycle regularity, cycle length, period dates, health conditions (if any) and any birth control used in the last 6 months.</p>
@@ -344,7 +498,7 @@ const contentData = {
             <ol>
                 <li>At least 3 cycle start dates</li>
                 <li>At least 50% biomarker data for those cycles</li>
-                <li>BMI ≤28, age is ≤ 40</li>
+                <li>BMI â‰¤28, age is â‰¤ 40</li>
             </ol>
 
             <h3>Tracking to get pregnant</h3>
@@ -380,7 +534,7 @@ const contentData = {
                 <li>The user feels there are days where their temperature has not been recorded (in cycle tracking): When deviation from the recorded baseline is very close to 0, there are no bars shown on the graph. We're working on improvements to the feature so that this is clear going forward. (Currently may also show as "- -" on a given day, on the app)</li>
                 <li>Users complain that they are seeing the 'in calibration' banner even after logging in past 3 cycles data and wearing the ring continuously: Troubleshooting: We show the "In calibration" if we can't come up with a fertility high confidence. This high confidence is decided on some factors as described.</li>
                 <li>User notices that predicted ovulation window changes on a given day: We predict the ovulation window for a user based on 3 biomarkers (temperature deviation, RHR and HRV) - hence, if on any day we find that these biomarkers are more (or less) suggestive towards a certain day, the algorithm will change basis the stronger suggestive biomarker pattern. Hence, the predicted ovulation window may dynamically change.</li>
-                <li>Users complain that the temperature being shown in their sleep index section and the one being shown inside the powerplug are different: Troubleshooting: For the temperature you see on the Sleep Index details page, we calculate it by excluding nap sleep. This gives you an average skin temperature during your main sleep period, without naps affecting the value. However, the skin temperature in the Cycle Tracking details page is pulled from your baseline temperature, which includes all temp data within sleep boundaries—naps included. Hence, the difference.</li>
+                <li>Users complain that the temperature being shown in their sleep index section and the one being shown inside the powerplug are different: Troubleshooting: For the temperature you see on the Sleep Index details page, we calculate it by excluding nap sleep. This gives you an average skin temperature during your main sleep period, without naps affecting the value. However, the skin temperature in the Cycle Tracking details page is pulled from your baseline temperature, which includes all temp data within sleep boundariesâ€”naps included. Hence, the difference.</li>
             </ul>
 
             <h3>WIP</h3>
@@ -396,9 +550,9 @@ const contentData = {
             </ul>
             <p>Specific improvements we're working on to address some of the issues over the next few weeks:</p>
             <ol>
-                <li>Stabilizing the ovulation window — Once a high-probability ovulation window is identified, we'll prevent multiple shifts later in the same cycle.</li>
-                <li>Marking ovulation day — You'll be able to manually mark your ovulation day to refine predictions and improve future accuracy.</li>
-                <li>Bug fixes for irregular cycles — We're fixing issues that impact predictions for users with irregular cycle lengths.</li>
+                <li>Stabilizing the ovulation window â€” Once a high-probability ovulation window is identified, we'll prevent multiple shifts later in the same cycle.</li>
+                <li>Marking ovulation day â€” You'll be able to manually mark your ovulation day to refine predictions and improve future accuracy.</li>
+                <li>Bug fixes for irregular cycles â€” We're fixing issues that impact predictions for users with irregular cycle lengths.</li>
             </ol>
         `
     },
@@ -566,7 +720,7 @@ const contentData = {
             <p>To outline standardized procedures for handling support chat interactions, ensuring high-quality and consistent support via Yellow.AI.</p>
 
             <h4>Holding Message</h4>
-            <p class="highlight">"After carefully reviewing your issue, we've determined that it needs to be escalated to our internal team for a thorough check. We've raised it with the concerned team, and typically this process takes less than 48 hours. In rare cases, it may take up to 72 hours. Please rest assured—we'll keep this chat open and update you as soon as we have a resolution."</p>
+            <p class="highlight">"After carefully reviewing your issue, we've determined that it needs to be escalated to our internal team for a thorough check. We've raised it with the concerned team, and typically this process takes less than 48 hours. In rare cases, it may take up to 72 hours. Please rest assuredâ€”we'll keep this chat open and update you as soon as we have a resolution."</p>
 
             <h4>Flagging Process</h4>
             <ol>
@@ -579,14 +733,14 @@ const contentData = {
             <h4>Resolution Scenarios</h4>
             <table>
                 <tr><th>Scenario</th><th>Mark as Resolved</th><th>Flag</th></tr>
-                <tr><td>Issue fully solved, user confirmed</td><td>✅</td><td>❌</td></tr>
-                <tr><td>Feedback/feature request shared</td><td>✅</td><td>❌</td></tr>
-                <tr><td>Refund/replacement processed</td><td>✅</td><td>❌</td></tr>
-                <tr><td>Waiting for user reply after partial solution</td><td>❌</td><td>❌</td></tr>
-                <tr><td>Distress from ring causing injury</td><td>❌</td><td>✅</td></tr>
-                <tr><td>Bug/tech issue pending internal fix</td><td>❌</td><td>✅</td></tr>
-                <tr><td>Transaction/refund issues needing finance review</td><td>❌</td><td>✅</td></tr>
-                <tr><td>Ops issues (ETA, customs, lost packages)</td><td>❌</td><td>✅</td></tr>
+                <tr><td>Issue fully solved, user confirmed</td><td>âœ…</td><td>âŒ</td></tr>
+                <tr><td>Feedback/feature request shared</td><td>âœ…</td><td>âŒ</td></tr>
+                <tr><td>Refund/replacement processed</td><td>âœ…</td><td>âŒ</td></tr>
+                <tr><td>Waiting for user reply after partial solution</td><td>âŒ</td><td>âŒ</td></tr>
+                <tr><td>Distress from ring causing injury</td><td>âŒ</td><td>âœ…</td></tr>
+                <tr><td>Bug/tech issue pending internal fix</td><td>âŒ</td><td>âœ…</td></tr>
+                <tr><td>Transaction/refund issues needing finance review</td><td>âŒ</td><td>âœ…</td></tr>
+                <tr><td>Ops issues (ETA, customs, lost packages)</td><td>âŒ</td><td>âœ…</td></tr>
             </table>
 
             <h3>Flagging Guidelines</h3>
@@ -671,7 +825,7 @@ const contentData = {
                 <li>More accurate ovulation window prediction</li>
                 <li>Better period prediction</li>
                 <li>Enhanced period logging</li>
-                <li>Cycle Flags™ for hidden fertility clues</li>
+                <li>Cycle Flagsâ„¢ for hidden fertility clues</li>
             </ul>
 
             <h4>Cycle Flags</h4>
@@ -796,7 +950,7 @@ contentData['powerplug'] = {
     </div>
 
     <div id="pp-explore" class="pp-pane" hidden>
-        <h3>Explore PowerPlugs</h3>
+        <h3 class="pp-heading-center">Explore PowerPlugs</h3>
         <ul class="pp-name-list">
             <li><button type="button" data-key="vitamin-d">Vitamin D PowerPlug</button></li>
             <li><button type="button" data-key="caffeine-window">Caffeine Window</button></li>
@@ -813,6 +967,59 @@ contentData['powerplug'] = {
 };
 
 const powerplugHtml = contentData['powerplug'].content;
+
+contentData['ultrahumanx'] = {
+    title: 'UltrahumanX Documentation',
+    content: `
+        <h3>UltrahumanX Overview</h3>
+        <p>Concierge flows, benefits, and escalation map for UltrahumanX members.</p>
+        <ul>
+            <li>Verify membership status and perk eligibility.</li>
+            <li>Priority routing, SLA expectations, and follow-up cadence.</li>
+            <li>How to log specialist hand-offs and track resolutions.</li>
+        </ul>
+
+        <h4>Escalation &amp; Recovery</h4>
+        <ol>
+            <li>Flag criteria for white-glove outreach.</li>
+            <li>Service recovery credits and when to seek manager approval.</li>
+            <li>Notes format for post-resolution summaries.</li>
+        </ol>
+    `
+};
+
+contentData['chat-email-handling'] = {
+    title: 'Chat and Email Handling',
+    content: `
+        <h3>Chat &amp; Email Handling</h3>
+        <p>Guidelines to keep tone, macros, and SLAs consistent across chat and email.</p>
+        <ul>
+            <li>Openers, closers, and signature templates by channel.</li>
+            <li>Tagging, flagging, and when to escalate sensitive tickets.</li>
+            <li>Service recovery thresholds and credit guidance.</li>
+        </ul>
+
+        <h4>Quality Checklist</h4>
+        <ol>
+            <li>Confirm user identity and device context.</li>
+            <li>Summarize the issue back to the user before proposing fixes.</li>
+            <li>Document next steps and share turnaround commitments.</li>
+        </ol>
+    `
+};
+
+contentData['misc'] = {
+    title: 'Miscellaneous Resources',
+    content: `
+        <h3>Miscellaneous References</h3>
+        <p>Parking lot for quick links, SOPs, and glossary items that support daily ops.</p>
+        <ul>
+            <li>Release notes and one-off fixes.</li>
+            <li>Tooling links and sandbox credentials (where allowed).</li>
+            <li>Glossary for product names, acronyms, and internal tags.</li>
+        </ul>
+    `
+};
 
 // Function to load content for a section
 
@@ -852,7 +1059,7 @@ function initPowerplugBubbles() {
         'vitamin-d': `
             <h4>Vitamin D PowerPlug</h4>
             <p>Vitamin D plays a critical role in maintaining optimal body functions. It influences muscle, bone, and immune system health, aids in calcium absorption, and supports muscle movement.</p>
-            <p>It also helps transmit messages from the brain to the body and bolsters the immune system by combating bacteria and viruses. While Vitamin D can be obtained from food, the most effective source is exposure to sunlight. By optimizing your skin’s absorption of sunlight, you can meet your daily Vitamin D intake more efficiently.</p>
+            <p>It also helps transmit messages from the brain to the body and bolsters the immune system by combating bacteria and viruses. While Vitamin D can be obtained from food, the most effective source is exposure to sunlight. By optimizing your skinâ€™s absorption of sunlight, you can meet your daily Vitamin D intake more efficiently.</p>
             <h5>Introducing the Vitamin D PowerPlug</h5>
             <p>Monitor the amount of Vitamin D you get throughout the day. Access personalised goals and insights based on your skin type. By nudging you towards sunlight exposure during different times of the day, this PowerPlug naturally helps you optimize your Vitamin D levels efficiently.</p>
             <ol>
@@ -868,7 +1075,7 @@ function initPowerplugBubbles() {
             <p><a href="https://www.notion.so/21c755317a91806e8f22e67134e9ad04?pvs=21" target="_blank" rel="noopener noreferrer">Read our Caffeine Window FAQ</a></p>
 
             <h5>How Caffeine Window works</h5>
-            <p><strong>Personalized caffeine window</strong> &mdash; Opens 90 minutes after you wake up so adenosine clears naturally. Waiting sharpens caffeine’s impact and reduces crashes. A default cut-off warns when late caffeine could impair deep sleep; logging intake unlocks personalized cut-offs.</p>
+            <p><strong>Personalized caffeine window</strong> &mdash; Opens 90 minutes after you wake up so adenosine clears naturally. Waiting sharpens caffeineâ€™s impact and reduces crashes. A default cut-off warns when late caffeine could impair deep sleep; logging intake unlocks personalized cut-offs.</p>
             <p><strong>Dynamic body caffeine</strong> &mdash; Every logged drink updates body caffeine levels, decay, and cut-off time so you can manage intake intelligently.</p>
             <p><strong>Easy logging</strong> &mdash; Log from the Caffeine Bar with hundreds of beverages; tagged drinks stay in recents for one-tap logging. Delete logs directly from the graph or timeline.</p>
 
@@ -880,7 +1087,7 @@ function initPowerplugBubbles() {
             </ul>
 
             <h5>Why caffeine timing matters</h5>
-            <p>Late caffeine can fragment sleep and reduce deep sleep even if you fall asleep normally. Deep sleep fuels Brain Waste Clearance (glymphatic clearance) that removes harmful byproducts like beta-amyloid and tau. Chronic poor clearance is linked to Alzheimer’s and cognitive decline.</p>
+            <p>Late caffeine can fragment sleep and reduce deep sleep even if you fall asleep normally. Deep sleep fuels Brain Waste Clearance (glymphatic clearance) that removes harmful byproducts like beta-amyloid and tau. Chronic poor clearance is linked to Alzheimerâ€™s and cognitive decline.</p>
 
             <p><strong>Visuals</strong></p>
             <p><img src="https://blog.ultrahuman.com/wp-content/uploads/2025/06/body-caffeine-levels-1024x576.jpg" alt="Body caffeine levels" loading="lazy"></p>
@@ -1069,7 +1276,13 @@ function initPowerplugBubbles() {
             detailButtons.forEach(b => b.classList.toggle('active', b === btn));
             if (detailCopy[key]) {
                 detail.innerHTML = `
-                    <button type="button" class="pp-back" aria-label="Back to PowerPlugs">← Back</button>
+                    <div class="pp-detail-header">
+                        <button type="button" class="pp-back" aria-label="Back to PowerPlugs">
+                            <span aria-hidden="true">&#8592;</span>
+                            <span>Back</span>
+                        </button>
+                        <a class="pp-troubleshoot" href="#powerplug" aria-label="Open troubleshooting resources">Troubleshooting</a>
+                    </div>
                     ${detailCopy[key]}
                 `;
                 detail.hidden = false;

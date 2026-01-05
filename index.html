@@ -62,9 +62,13 @@
                 <li><a href="#blood-vision" class="nav-link">Blood Vision</a></li>
                 <li><a href="#m1-sensor" class="nav-link">M1 Sensor</a></li>
                 <li><a href="#ring-air" class="nav-link">Ring AIR</a></li>
+                <li><a href="#ring-rare" class="nav-link">Ring RARE</a></li>
                 <li><a href="#powerplug" class="nav-link">PowerPlug</a></li>
+                <li><a href="#ultrahumanx" class="nav-link">UltrahumanX</a></li>
                 <li><a href="#ultrahuman-home" class="nav-link">Ultrahuman Home</a></li>
                 <li><a href="#sops" class="nav-link">SOPs & Procedures</a></li>
+                <li><a href="#chat-email-handling" class="nav-link">Chat/Email Handling</a></li>
+                <li><a href="#misc" class="nav-link">Misc</a></li>
             </ul>
         </div>
     </nav>
@@ -78,7 +82,7 @@
                 <p>This comprehensive documentation covers all aspects of Ultrahuman's customer support operations, including product FAQs, troubleshooting guides, and standard operating procedures.</p>
 
                 <div class="overview-grid">
-                <div class="overview-card">
+                    <div class="overview-card">
                         <h3>Blood Vision</h3>
                         <p>Complete guide to Blood Vision testing, FAQs, and USA-specific procedures.</p>
                         <a href="#blood-vision" class="card-link" onclick="navigateToSection('blood-vision')">Explore →</a>
@@ -94,9 +98,19 @@
                         <a href="#ring-air" class="card-link" onclick="navigateToSection('ring-air')">Explore →</a>
                     </div>
                     <div class="overview-card">
+                        <h3>Ring RARE</h3>
+                        <p>Setup, sizing, and troubleshooting flows for the Ring RARE hardware variant.</p>
+                        <a href="#ring-rare" class="card-link" onclick="navigateToSection('ring-rare')">Explore →</a>
+                    </div>
+                    <div class="overview-card">
                         <h3>PowerPlug</h3>
                         <p>Detailed FAQs and feature explanations for all PowerPlug modules.</p>
                         <a href="#powerplug" class="card-link" onclick="navigateToSection('powerplug')">Explore →</a>
+                    </div>
+                    <div class="overview-card">
+                        <h3>UltrahumanX</h3>
+                        <p>Concierge playbooks, benefits, and escalations for UltrahumanX members.</p>
+                        <a href="#ultrahumanx" class="card-link" onclick="navigateToSection('ultrahumanx')">Explore →</a>
                     </div>
                     <div class="overview-card">
                         <h3>Ultrahuman Home</h3>
@@ -104,20 +118,38 @@
                         <a href="#ultrahuman-home" class="card-link" onclick="navigateToSection('ultrahuman-home')">Explore →</a>
                     </div>
                     <div class="overview-card">
-                        <h3>SOPs & Procedures</h3>
-                        <p>Standard operating procedures for chat handling, flagging, and customer service.</p>
-                        <a href="#sops" class="card-link" onclick="navigateToSection('sops')">Explore →</a>
+                        <h3>Chat/Email Handling</h3>
+                        <p>Templates, tone guidelines, and QA checklists for chat and email support.</p>
+                        <a href="#chat-email-handling" class="card-link" onclick="navigateToSection('chat-email-handling')">Explore →</a>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Misc</h3>
+                        <p>Quick links, release notes, and references that do not fit other modules.</p>
+                        <a href="#misc" class="card-link" onclick="navigateToSection('misc')">Explore →</a>
                     </div>
                 </div>
             </section>
 
             <section id="blood-vision" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a class="back-pill" href="#overview" aria-label="Back to overview">
+                        <span class="back-pill__icon" aria-hidden="true">&#8592;</span>
+                        <span class="back-pill__label">Back</span>
+                    </a>
+                </div>
                 <h2>Blood Vision</h2>
+                <p class="section-support-level">Support Level: L2</p>
                 <div id="blood-vision-content" class="document-content">
                     <div class="tab-buttons blood-vision-tabs" role="tablist" aria-label="Blood Vision Regions">
                         <button type="button" class="tab-button active" data-tab="india" role="tab" aria-controls="india-tab" aria-selected="true">India</button>
                         <button type="button" class="tab-button" data-tab="usa" role="tab" aria-controls="usa-tab" aria-selected="false">USA</button>
                         <button type="button" class="tab-button" data-tab="uae" role="tab" aria-controls="uae-tab" aria-selected="false">UAE</button>
+                        <button type="button" class="tab-button" data-tab="refunds" role="tab" aria-controls="refunds-tab" aria-selected="false">Refunds</button>
                     </div>
                     <div class="tab-content active" id="india-tab">
                         <div class="bv-pill-tabs" role="tablist" aria-label="Blood Vision India">
@@ -427,10 +459,30 @@
                         </div>
                         </div>
                     </div>
+
+                    <div class="tab-content" id="refunds-tab" hidden>
+                        <div class="blood-vision-body">
+                            <h3 id="refunds-overview">Blood Vision Refunds</h3>
+                            <p>Use tag <code>BV_Refund</code> for payment captured but order not confirmed, or any refund eligibility checks.</p>
+                            <ol>
+                                <li>Open Blood Test Purchases and verify <strong>Order Status</strong> and <strong>Accepted by Vendor</strong>.</li>
+                                <li>Confirm payment capture (RazorPay access) if the order shows failed/pending.</li>
+                                <li>Flag <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF" target="_blank" rel="noopener noreferrer">#support-tech-oncall-requests</a> with order ID and payment proof to confirm refund/reinitiation.</li>
+                            </ol>
+                            <p>Reference: <a href="https://ultrahumanworkspace.slack.com/archives/C02DUT8HSHF/p1759516949970919" target="_blank" rel="noopener noreferrer">refund thread</a>.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="m1-sensor" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
                 <h2>M1 Sensor</h2>
                 <div id="m1-sensor-content" class="document-content">
                     <h3>Ultrahuman M1 Overview</h3>
@@ -531,6 +583,13 @@
             </section>
 
             <section id="ring-air" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
                 <h2>Ring AIR</h2>
                                 <div id="ring-air-content" class="document-content">
                     <div class="ring-air-embed">
@@ -552,7 +611,28 @@
                 </div>
             </section>
 
+            <section id="ring-rare" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                <h2>Ring RARE</h2>
+                <div id="ring-rare-content" class="document-content">
+                    <p>Ring RARE setup, sizing, troubleshooting, and replacement workflows live here.</p>
+                </div>
+            </section>
+
             <section id="powerplug" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
                 <h2>PowerPlug</h2>
                 <div id="powerplug-content" class="document-content">
                     <h3>PowerPlug Overview</h3>
@@ -815,7 +895,28 @@
                 </div>
             </section>
 
+            <section id="ultrahumanx" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                <h2>UltrahumanX</h2>
+                <div id="ultrahumanx-content" class="document-content">
+                    <p>UltrahumanX benefits, concierge playbooks, and escalation rules.</p>
+                </div>
+            </section>
+
             <section id="ultrahuman-home" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
                 <h2>Ultrahuman Home</h2>
                 <div id="ultrahuman-home-content" class="document-content">
                     <h3>Ultrahuman Home Overview</h3>
@@ -973,6 +1074,13 @@
             </section>
 
             <section id="sops" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
                 <h2>SOPs & Procedures</h2>
                 <div id="sops-content" class="document-content">
                     <h3>Chat Handling & Flagging SOP</h3>
@@ -1129,18 +1237,34 @@
                     </ul>
                 </div>
             </section>
+            <section id="chat-email-handling" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                <h2>Chat/Email Handling</h2>
+                <div id="chat-email-handling-content" class="document-content">
+                    <p>Templates, tone, escalation tags, and QA checklists for chat and email support.</p>
+                </div>
+            </section>
+            <section id="misc" class="section">
+                <div class="section-meta pill-row">
+                    <a class="home-pill" href="#overview" aria-label="Go to home page">
+                        <svg viewBox="0 0 24 24" class="home-pill__icon" aria-hidden="true" focusable="false">
+                            <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5.5v-4.5h-3V21H5a1 1 0 0 1-1-1v-9.5Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+                <h2>Misc</h2>
+                <div id="misc-content" class="document-content">
+                    <p>Quick links, release notes, and references that do not fit other modules.</p>
+                </div>
+            </section>
         </div>
     </main>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2024 Ultrahuman Codex. Internal Documentation.</p>
-            <div class="footer-glass-logo" aria-hidden="true">
-                <span class="glass-text">ULTRAHUMAN</span>
-                <span class="glass-blur"></span>
-            </div>
-        </div>
-    </footer>
 
     <script src="js/content.js"></script>
     <script src="js/search.js"></script>

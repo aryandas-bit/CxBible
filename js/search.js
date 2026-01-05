@@ -4,6 +4,8 @@ class CodeXSearch {
         this.searchIndex = {};
         this.searchResults = [];
         this.currentQuery = '';
+        this.suggestionPool = [];
+        this.suggestionContainer = null;
         this.init();
     }
 
@@ -59,6 +61,28 @@ class CodeXSearch {
         });
     }
 
+    collectSuggestionPool() {
+        const pool = new Map();
+
+        // From contentData
+        Object.entries(contentData).forEach(([id, section]) => {
+            const title = section.title || id;
+            pool.set(id, { id, title });
+        });
+
+        // From nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            const href = link.getAttribute('href') || '';
+            if (href.startsWith('#')) {
+                const id = href.substring(1);
+                const title = link.textContent.trim() || id;
+                pool.set(id, { id, title });
+            }
+        });
+
+        this.suggestionPool = Array.from(pool.values());
+    }
+
     stripHtml(html) {
         // Create a temporary div element to strip HTML tags
         const tempDiv = document.createElement('div');
@@ -69,6 +93,8 @@ class CodeXSearch {
     bindEvents() {
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
+
+        this.collectSuggestionPool();
 
         if (searchInput && searchButton) {
             searchButton.addEventListener('click', () => this.performSearch());
@@ -82,21 +108,96 @@ class CodeXSearch {
             let searchTimeout;
             searchInput.addEventListener('input', () => {
                 clearTimeout(searchTimeout);
+                this.showSuggestions(searchInput.value);
                 searchTimeout = setTimeout(() => {
                     if (searchInput.value.length > 2) {
                         this.performSearch();
                     } else if (searchInput.value.length === 0) {
                         this.clearSearchResults();
+                        this.clearSuggestions();
                     }
                 }, 300);
             });
+
+            searchInput.addEventListener('focus', () => this.showSuggestions(searchInput.value));
+            searchInput.addEventListener('blur', () => {
+                setTimeout(() => this.clearSuggestions(), 120);
+            });
         }
+
+        document.addEventListener('click', (e) => {
+            if (this.suggestionContainer && !this.suggestionContainer.contains(e.target) && e.target !== searchInput) {
+                this.clearSuggestions();
+            }
+        });
+    }
+
+    showSuggestions(query) {
+        this.clearSuggestions();
+        const trimmed = (query || '').toLowerCase().trim();
+        if (trimmed.length < 2 || this.suggestionPool.length === 0) return;
+
+        const matches = this.suggestionPool
+            .map(item => {
+                const title = item.title.toLowerCase();
+                const id = item.id.toLowerCase();
+                const matchIndex = title.indexOf(trimmed);
+                const idIndex = id.indexOf(trimmed);
+                const score = matchIndex !== -1 ? matchIndex : idIndex !== -1 ? idIndex + 100 : Infinity;
+                return { ...item, score };
+            })
+            .filter(item => item.score !== Infinity)
+            .sort((a, b) => a.score - b.score)
+            .slice(0, 6);
+
+        if (matches.length === 0) return;
+
+        const container = document.createElement('div');
+        container.className = 'search-suggestions';
+
+        matches.forEach(match => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'search-suggestion';
+            btn.textContent = match.title;
+            btn.addEventListener('click', () => {
+                const input = document.getElementById('searchInput');
+                if (input) input.value = match.title;
+                this.navigateToSection(match.id);
+                this.clearSuggestions();
+                this.clearSearchResults(true);
+            });
+            container.appendChild(btn);
+        });
+
+        const widget = document.querySelector('.search-widget');
+        if (widget) {
+            widget.appendChild(container);
+            this.suggestionContainer = container;
+        }
+    }
+
+    clearSuggestions() {
+        if (this.suggestionContainer && this.suggestionContainer.parentNode) {
+            this.suggestionContainer.parentNode.removeChild(this.suggestionContainer);
+        }
+        this.suggestionContainer = null;
     }
 
     performSearch() {
         const query = document.getElementById('searchInput').value.trim().toLowerCase();
         if (!query) {
             this.clearSearchResults();
+            this.clearSuggestions();
+            return;
+        }
+
+        // Quick direct match to a known section title or id
+        const directSection = this.findDirectSection(query);
+        if (directSection) {
+            this.navigateToSection(directSection);
+            this.clearSearchResults(true);
+            this.clearSuggestions();
             return;
         }
 
@@ -140,6 +241,30 @@ class CodeXSearch {
 
         // Clear any prior search UI without changing the active section
         this.clearSearchResults(true);
+    }
+
+    findDirectSection(query) {
+        const normalized = query.toLowerCase();
+
+        // Try contentData titles/ids
+        for (const [sectionId, section] of Object.entries(contentData)) {
+            const titleMatch = section.title && section.title.toLowerCase().includes(normalized);
+            const idMatch = sectionId.toLowerCase().includes(normalized);
+            if (titleMatch || idMatch) return sectionId;
+        }
+
+        // Try nav link labels
+        const navLinks = document.querySelectorAll('.nav-link');
+        for (const link of navLinks) {
+            const text = link.textContent.trim().toLowerCase();
+            if (text.includes(normalized)) {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    return href.substring(1);
+                }
+            }
+        }
+        return null;
     }
 
     displaySearchResults() {

@@ -13,11 +13,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     initializeTabs();
+    initializeBloodVisionSubtabs();
+    initializeRegionTabs();
     initializeCircadianModule();
 });
 
 function initializeNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
+    const homeLinks = document.querySelectorAll('.home-pill, .back-pill');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -48,6 +51,13 @@ function initializeNavigation() {
             if (navList.classList.contains('active')) {
                 navList.classList.remove('active');
             }
+        });
+    });
+
+    homeLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            navigateToSection('overview');
         });
     });
 }
@@ -252,6 +262,118 @@ function initializeTabs() {
         }
     });
   });
+}
+
+function initializeBloodVisionSubtabs() {
+    const container = document.getElementById('blood-vision-content');
+    if (!container) return;
+
+    const buttons = container.querySelectorAll('.bv-subtab');
+    const panes = container.querySelectorAll('.bv-pane');
+    const groupedTargets = {};
+    const backButtons = container.querySelectorAll('[data-region-back]');
+
+    if (!buttons.length || !panes.length) return;
+
+    const reset = () => {
+        buttons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+        });
+        panes.forEach(pane => {
+            pane.classList.remove('active');
+            pane.setAttribute('hidden', 'hidden');
+        });
+    };
+
+    const setRegionMode = (isRegion) => {
+        container.classList.toggle('bv-region-mode', isRegion);
+    };
+
+    const activateTarget = (target) => {
+        const targetIds = groupedTargets[target] || [target];
+        const hasPane = targetIds.some(id => container.querySelector(`#${id}`));
+        if (!hasPane) return;
+        reset();
+        buttons.forEach(btn => {
+            const isActive = btn.getAttribute('data-target') === target;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', String(isActive));
+        });
+        panes.forEach(pane => {
+            const shouldShow = targetIds.includes(pane.id);
+            pane.classList.toggle('active', shouldShow);
+            if (shouldShow) {
+                pane.removeAttribute('hidden');
+            } else {
+                pane.setAttribute('hidden', 'hidden');
+            }
+        });
+        setRegionMode(target === 'bv-region');
+    };
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-target');
+            activateTarget(target);
+        });
+    });
+
+    backButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            activateTarget('bv-overview');
+        });
+    });
+
+    const initial = container.querySelector('.bv-subtab.active');
+    if (initial) {
+        const target = initial.getAttribute('data-target');
+        setRegionMode(target === 'bv-region');
+    }
+}
+
+function initializeRegionTabs() {
+    const tabGroups = document.querySelectorAll('.bv-region-tabs');
+
+    tabGroups.forEach(group => {
+        const buttons = group.querySelectorAll('[data-region-target]');
+        const panes = group.closest('.bv-pane')?.querySelectorAll('.bv-region-pane') || [];
+
+        const activate = (targetId) => {
+            buttons.forEach(btn => {
+                const isActive = btn.getAttribute('data-region-target') === targetId;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', String(isActive));
+            });
+
+            panes.forEach(pane => {
+                const shouldShow = pane.id === targetId;
+                pane.classList.toggle('active', shouldShow);
+                if (shouldShow) {
+                    pane.removeAttribute('hidden');
+                } else {
+                    pane.setAttribute('hidden', 'hidden');
+                }
+            });
+        };
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-region-target');
+                if (targetId) {
+                    activate(targetId);
+                }
+            });
+        });
+
+        const defaultButton = group.querySelector('.bv-pill-button.active') || buttons[0];
+        if (defaultButton) {
+            const targetId = defaultButton.getAttribute('data-region-target');
+            if (targetId) {
+                activate(targetId);
+            }
+        }
+    });
 }
 
 function initializeThemeToggle() {
